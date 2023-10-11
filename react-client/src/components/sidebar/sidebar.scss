@@ -1,0 +1,195 @@
+.sidebar{
+    
+    .sidebarWrapper{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        
+
+        .sidebarLogo{
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 20px;
+
+            .logo{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: #67968f;
+                border-bottom: 1px solid #67968f5e;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+                img{
+                    width: 80%;
+                    padding: 0;
+                }
+
+                .taskManagerDiv{
+                    display: flex;
+                    align-items: center;
+                    font-size: 30px;
+                    font-weight: 600;
+                    margin-top: -20px;
+                }
+            }
+        }
+
+        .sidebarNav{
+            padding: 20px 20px;
+            flex: 10;
+
+            .greyedOutText{
+                font-size: 14px;
+                font-weight: 700;
+                color: grey;
+                letter-spacing: 0.07em;
+                padding: 20px 0px;
+            }
+
+            .overviewElements{
+                display: flex;
+                flex-direction: column;
+                padding: 10px 0px;
+
+                .elementsItem{
+                    width: 100%;
+                    background-color: white;
+                    
+                    .elementsWrapper{
+                        width: 89%;
+                        padding: 10px 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        cursor: pointer;
+                        background-color: white;
+                        float: right;
+                        
+
+
+                        .elementName{
+                            display: flex;
+                            align-items: center;
+                            font-size: 18px;
+                            font-weight: 500;
+                            gap: 8px;
+                            color: grey;
+                            
+                        }
+    
+                        .elementBadge{
+                            width: 20px;
+                            height: 15px;
+                            border-radius: 40%;
+                            color: white;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 12px;
+                            background-color: #aa5042;
+                        }
+
+                        
+                    }
+
+                    
+
+                    &:hover{
+                        background-color: #fed766;
+                    }
+                    
+                }
+
+                .active{
+                    
+                    background-color: #fed766;
+                }
+
+                
+                
+            }
+        }
+
+        .sidebarFooter{
+            flex: 1;
+            display: flex;
+            align-items: center;
+            
+            width: 100%;
+            justify-content: center;
+
+            .sidebarFooterContent{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 80%;
+                border-top: 1px solid #67968f5e;
+                padding: 20px 0px;
+                position: relative;
+
+                .footerIconContainer{
+                    display: flex;
+                    gap: 5px;
+                    align-items: center;
+                    position: relative;
+                    cursor: pointer;
+                    margin-right: 10px;
+                    color: #475b5a;
+    
+                    .topIconBadge{
+                        width: 15px;
+                        height: 15px;
+                        position: absolute;
+                        top: -5px;
+                        right: 0px;
+                        background-color: #aa5042;
+                        color: white;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 12px;
+    
+                    }
+    
+                    .profilePic{
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                    h5{
+                        font-size: 12px;
+                        font-weight: normal;
+                        color: #475b5a;
+                    }
+                    span{
+                        font-size: 14px;
+                        font-weight: bold;
+                        color: #aa5042;
+                    }
+                }
+
+                .moreUserModal{
+                    position: absolute;
+                    background-color: #fed766;
+                    right: -20px;
+                    top: -20px;
+                    padding: 10px;
+                    border-radius: 10px;
+
+                    .moreBtn{
+                        cursor: pointer;
+                        background: none;
+                        border: none;
+                        font-size: 14px;
+
+                    }
+                }
+            }
+            
+        }
+    }
+}

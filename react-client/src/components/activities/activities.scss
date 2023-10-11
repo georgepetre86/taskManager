@@ -1,0 +1,68 @@
+.activities{
+    padding: 20px 0px;
+
+    .activitiesWrapper{
+        padding: 20px 30px;
+        height: 800px;
+
+
+        .activityListView{
+            border: none;
+            border-radius: 10px;
+            background-color: #fed766;
+            color: white;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .activityListDone{
+            color: #7fc6a4;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+
+        .activityStage{
+                color: white;
+                padding: 5px 15px;
+                border-radius: 10px;
+                width: 80%;
+                
+                text-align: center;
+            }
+
+            .green{
+                background-color: #7fc6a4;
+            }
+
+            .yellow{
+                background-color: #fed766;
+            }
+
+            .red{
+                background-color: #aa5042;
+            }
+
+            .gray{
+                background-color: #bbbbbf;
+            }
+        .activitySummary{
+            font-size: 16px;
+        }
+
+        .activityAsignee{
+            padding: 5px;
+            border-radius: 50%;
+            color: white;
+            
+        }
+
+        .activityPriority{
+            padding: 5px 15px;
+            border-radius: 10px;
+            color: white;
+            width: 90%;
+            text-align: center;
+        }
+    }
+}

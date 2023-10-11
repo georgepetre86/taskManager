@@ -1,0 +1,39 @@
+.chart{
+    
+
+
+    .chartWrapper{
+        width: 96%;
+        padding: 0px 30px;
+        display: flex;
+        gap: 2%;
+
+        .chartLeft{
+            flex: 3;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: white;
+            -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+            text-transform: capitalize;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .chartRight{
+            flex: 1;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: white;
+            text-transform: capitalize;
+            -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+            tspan{
+                font-size: 12px;
+                font-weight: bold;
+            }
+        }
+    }
+}

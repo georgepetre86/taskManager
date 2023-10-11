@@ -1,0 +1,19 @@
+.topbar{
+
+    .topbarWrapper{
+
+        .topRight{
+
+            padding-right: 40px;
+            .addNewProjectButton{
+                display: flex;
+                align-items: center;
+                border: none;
+                background-color: #118ab2;
+                color: white;
+                padding: 10px 25px;
+                font-size: 16px;
+            }
+        }
+    }
+}

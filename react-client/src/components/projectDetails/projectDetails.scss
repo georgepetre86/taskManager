@@ -1,0 +1,34 @@
+.detailsContents{
+
+
+    ul{display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        li{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+
+            ul{
+                display: flex;
+                flex-direction: row;
+                gap: 5px;
+                padding: 5px 0px;
+                margin: 0;
+
+                li{
+                    background-color: #118ab2;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    color: white;
+                    padding: 15px;
+                    border-radius: 10px;
+                    font-size: 12px;
+            }  
+            }
+        }
+    }
+}

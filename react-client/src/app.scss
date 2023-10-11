@@ -1,0 +1,32 @@
+.appWrapper{
+    overflow-x: hidden;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    
+    
+
+    .sidebar{
+        position: fixed;
+        width: 300px;
+        height: 100vh;
+        
+    }
+
+    .container{
+        position: relative;
+        margin-left: 300px;
+        z-index: 1;
+        width: 100%;
+        
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        background-color: #F8F8F8;
+    }
+
+    
+}
+
+
+

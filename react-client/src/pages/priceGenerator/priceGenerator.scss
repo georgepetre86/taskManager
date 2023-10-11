@@ -1,0 +1,285 @@
+.priceGenerator{
+    padding: 30px 0px;
+
+    .priceGeneratorWrapper{
+
+        padding: 0px 30px;
+        display: flex;
+        flex-direction: column;
+
+        .priceGeneratorContent{
+            display: flex;
+            gap: 20px;
+            .priceGeneratorItemsLeft{
+                flex: 2;
+                padding: 20px 0px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .selectRoomType{
+                    background-color: white;
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    border-radius: 15px;
+                    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+                    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+
+                    ul{
+                        list-style-type: none;
+                        display: flex;
+                        gap: 20px;
+
+                        li{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-direction: column;
+                            gap: 5px;
+                            cursor: pointer;
+
+                            :first-child{
+                                font-size: 40px;
+                            }
+                        }
+
+                        .itemCard{
+                            background-color: #e0e0e0;
+                            padding: 20px;
+                            border-radius: 10px;
+                        }
+
+                        .selected{
+                            background-color: #ffd166;
+                        }
+                    }
+
+                    .generateMaterials{
+                        background-color: #7fc6a4;
+                        padding: 10px;
+                        border-radius: 10px;
+                    }
+                }
+
+                .priceInputArea{
+                    background-color: white;
+                    padding: 20px 20px 40px 20px ;
+                    border-radius: 15px;
+                    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+                    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+                    display: flex;
+                    flex-direction: row;
+                    gap: 20px;
+                    position: relative;
+
+                    .priceInputAreaLeft{
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .priceInputAreaRight{
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    
+                    .inputItem{
+                        display: flex;
+                        flex-direction: column;
+                        padding: 20px 0px;
+                        gap: 20px;
+                        
+                        
+
+                        .inputItemWrapper{
+                            display: flex;
+                            flex-direction: column;
+                            background-color: #7fc6a4;
+                            padding: 20px;
+                            border-radius: 15px;
+                            gap: 5px;
+                            -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+                            box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+                            
+
+                            .inputItemSubitem{
+                                width: 100%;
+                                display: flex;
+                                align-items: center;
+                                
+
+                                .MuiButtonBase-root{
+                                    width: 10px;
+                                    height: 10px;
+                                    padding-left: 30px;
+                                    justify-content: flex-end;
+                                    background-color: transparent;
+                                
+                                }
+                                .css-10ofsv1-MuiSvgIcon-root{
+                                    left: -10px;
+                                }
+
+                                span{
+                                    width: 30%;
+                                    justify-content: center;
+                                    align-items: center;
+                                    text-align: right;
+                                    padding-right: 10px;
+                                }
+                                input{
+                                    width: 30%;
+                                    background-color: #e0e0e0;
+                                    border: none;
+                                }
+
+                                h4{
+                                    font-weight: normal;
+                                    padding-left: 5px;
+                                    font-size: 14px;
+                                }
+                            }
+
+                        }
+
+                        
+
+                        ul {
+                            list-style-type: none;
+                            li{
+                                
+                                
+        
+                                input{
+                                    width: 10%;
+                                }
+                            }
+                        }
+
+                        
+                    }
+
+                    .update{
+                        
+                         
+                         position: absolute;
+                         bottom: 10px;
+                         left: 20px;
+                        button{
+                            background-color: #118ab2;
+                            border: none;
+                            color: white;
+                            border-radius: 15px;
+                            padding: 10px 25px;
+                            font-size: 16px;
+                            cursor: pointer;
+                            
+                            
+                        }
+                    }
+                }
+            }
+            .priceGeneratorItemsRight{
+                flex: 1.5;
+                padding: 20px 0px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                
+
+                .priceProcessedArea{
+                    background-color: white;
+                    padding: 20px;
+                    border-radius: 15px;
+                    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+                    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+                    ul{
+                        list-style-type: none;
+                        margin: 0;
+                        padding: 0;
+                        
+                    }
+
+                    .processedCard{
+                        display: flex;
+                        flex-direction: row;
+                        gap: 20px;
+                        justify-content: center;
+                        
+
+                        .processedCardLeft{
+                            flex: 1;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 20px;
+                        }
+
+                        .processedCardRight{
+                            flex: 1;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 20px;
+                        }
+
+                        .processedCardItem{
+                            background-color: #ffd166;
+                            padding: 20px; 
+                            border-radius: 15px;
+                            -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+                            box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+                            .processedCardItemRows{
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+                                margin:0;
+                                padding: 0;
+
+                                li{
+                                    background-color: #e0e0e0;
+                                    margin: 0;
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 10px;
+
+                                    span{
+                                        background-color: #7c98b3;
+                                        padding: 5px;
+                                        width: 60%;
+                                        color: rgb(243, 243, 243);
+                                        font-size: 17px;
+                                    }
+
+                                    
+
+                                    
+                                }
+                                h6{
+                                    font-weight: normal;
+                                    padding: 0;
+                                    color: black;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+
+                        .costuri{
+                            background-color: #f8ad9d;
+                        }
+
+                        .profit{
+                            background-color: #7fc6a4;
+                        }
+                    }   
+                }
+            }
+        }
+
+        
+    }
+}

@@ -1,0 +1,157 @@
+.tasksPage{
+    padding: 20px 0px;
+
+    .tasksPageWrapper{
+        width: 96%;
+        padding: 20px 30px;
+
+        ul{
+            list-style-type: none;
+
+            li{
+                text-decoration: none;
+            }
+        }
+
+
+        .projectList {
+            border: 1px solid rgb(224, 224, 224);
+            border-radius: 5px;
+            padding: 10px 10px;
+
+            .listTitle{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 0px 20px 0px;
+                cursor: pointer;
+
+                h5{
+                    font-weight: normal;
+                }
+            }
+
+            span{
+                font-size: 14px;
+                font-weight: bold;
+            }
+            
+            .todoList{
+                padding: 10px 30px;
+                
+                span {
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    color: white;
+                    background-color: rgb(180, 180, 180);
+                    padding: 6px;
+                }
+
+                .todoList-list{
+
+                    ul{
+                        
+                        margin: 0;
+                        padding: 6px 0px;
+                        
+    
+                        li{
+                            cursor: pointer;
+                            padding: 10px 0px;
+                            background-color: white;
+                            -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.35);
+                            box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.35);
+                        
+                            .todoList-taskLine{
+                                display: flex;
+
+                                .taskLine-summary{
+                                    flex: 2;
+                                    display: flex;
+                                    align-items: center;
+                                    color: gray;
+
+                                    .switchButton{
+                                        font-size: 8px;
+                                        color: gray;
+                                    }
+                                }
+
+                                .taskLine-properties{
+                                    flex: 1;
+                                    display: flex;
+                                    justify-content: space-evenly;
+
+                                    .taskLinePropItem{
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        font-size: 12px;
+                                        color: lightslategrey;
+                                        
+                                    }
+
+                                    .asignee{
+                                        color: white;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        padding: 5px;
+                                        border-radius: 50%;
+                                        background-color: #7fc6a4;
+                                    }
+
+                                
+                                }
+
+                            }
+
+                            &:hover{
+                                background-color: rgb(231, 231, 231);
+                            }
+                        }
+
+                        
+
+
+                    }
+                }
+
+
+                .todoList-headers{
+                    display: flex;
+
+                    .todoListTAB{
+                        flex: 2;
+
+                        .inprogress{
+                            background-color: #fed766;
+                        }
+
+                        .completed {
+                            background-color: #7fc6a4;
+                        }
+
+                    }
+
+                    .todoListHeaders{
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-evenly;
+
+                        .todoListHeadersItem{
+                            text-transform: uppercase;
+                            font-size: 12px;
+                            color: rgb(196, 195, 195);
+                            font-weight: bold;
+                            
+                        }
+                    }
+                }
+            }
+            
+            
+        }
+    }
+}

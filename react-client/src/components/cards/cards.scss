@@ -1,0 +1,86 @@
+.cards{
+    width: 100%;
+    padding: 20px 0px;
+
+    .cardsWrapper{
+        padding: 20px 30px;
+        width: 100%;
+        display: flex;
+        gap: 2%;
+
+        .cardsItem{
+            width: 20%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: white;
+            border-radius: 5px;
+            -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+            .cardsItemTitle{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .iconItemTitle{
+                    color: white;
+                    padding: 7px;
+                    border-radius: 10px;
+                    
+                }
+
+                .yellow{
+                    background-color: #fed766;
+                }
+
+                .red{
+                    background-color: #aa5042;
+                }
+
+                .blue{
+                    background-color: #475B5A;
+                }
+
+                .teal{
+                    background-color: #9BC1BC;
+                }
+            }
+
+            .projectsStatus{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h4{
+                    font-weight: normal;
+                }
+            }
+
+            span{
+                display: flex;
+                align-items: center;
+                color: grey;
+                cursor: pointer;
+            }
+
+            progress{
+                -webkit-appearance: none;
+                 width: 100%;
+                 height: 20px;
+            }
+
+            progress[value]::-webkit-progress-bar{
+                background-color: rgb(212, 212, 212);
+                border-radius: 4px;
+            }
+
+            progress[value]::-webkit-progress-value{
+                background-color: #9bc1bc;
+                border-bottom-left-radius: 4px;
+                border-top-left-radius: 4px;
+            }
+        }
+    }
+}

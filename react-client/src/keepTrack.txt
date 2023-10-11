@@ -1,0 +1,5 @@
+20/10/2022 - 31/10/2022 - HTML/CSS frame for Dashboard, Tasks and Projects
+01/10/2022
+- Split projectPage in components
+
+16/11/2022 - create node backend
