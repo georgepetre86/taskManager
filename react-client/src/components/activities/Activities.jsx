@@ -69,7 +69,7 @@ export default function Activities() {
       const [currentId, setCurrentId] = useState("")
       //set Modal 
 
-      
+      //
       //show the _id of the row clicked
       const handleViewActivity = (id) => {
         const getRow = data.find(elem => elem.id === id)
@@ -85,7 +85,7 @@ export default function Activities() {
         data.forEach((item, i) => {
             item.id = i+1;
         })
-        
+
     const handleCloseActivityModal = () => {
         setActivityModal(false)
         reFetch()
