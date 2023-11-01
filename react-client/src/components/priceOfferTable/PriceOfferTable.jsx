@@ -22,7 +22,7 @@ export default function PriceOfferTable({sendPriceOfferToList, refreshList}) {
         console.log(err)
       }
       reFetch()
-    }
+    } 
 
     useEffect(() =>{
       reFetch()

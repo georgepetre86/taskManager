@@ -362,7 +362,7 @@ export default function PriceOffer() {
                 <ul>
                   <li>
                     {" "}
-                    <h3>Oferta preliminara</h3>
+                    <h3>Oferta de pret</h3>
                   </li>
                   <li>
                     <Person />
@@ -407,9 +407,9 @@ export default function PriceOffer() {
                     <div className="subtitle pret">Pret: </div>
                     <ul className="pret">
                       <li>{item.price} RON</li>
-                      <li>
+                      {/* <li>
                         * Pretul poate oscila in functie de modificarile aduse{" "}
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
                 </div>

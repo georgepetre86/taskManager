@@ -1,5 +1,18 @@
 .activities{
     padding: 20px 0px;
+    
+    .addNewButton{
+        background-color: #7fc6a4;
+        width: 6%;
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+        margin-left: 30px;
+        justify-content: center;        
+        color: #fff;
+        cursor: pointer;
+
+    }
 
     .activitiesWrapper{
         padding: 20px 30px;
@@ -65,4 +78,308 @@
             text-align: center;
         }
     }
+
+    .activityModal{
+        
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(196, 196, 196, 0.699);
+        
+
+        .modal-content{
+            position: relative;
+            height: 50%;
+            width: 50%;
+            background-color: #ffffff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            justify-content:flex-start;
+            gap: 10%;
+
+
+            .closeModal{
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                cursor: pointer;
+            }
+
+            .topModal{
+                display: flex;
+                flex-direction: row;
+                justify-content:space-between;
+                gap: 5%;
+                margin-top: 30px;
+
+                .modalSummary{
+                    width: 50%;
+                    height: 90%;
+                    padding: 5px;
+                    border-radius: 5px;
+                    display: flex;
+                    flex-direction: column;
+
+                    span{
+                    background-color: rgba(224, 224, 224, 0.699);
+                    border: none;
+                    width: 100%;
+                    padding: 5px;
+                    height: 100%;
+                    vertical-align: top;
+                    }
+                }
+
+                .topRightModal{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 50%;
+
+                    .modalAsignee{
+                        width: 25%;
+                        display: flex;
+                        justify-content: center;
+                        background-color: #7fc6a4;
+                        padding: 5px;
+                        border-radius: 5px;
+                    }
+    
+                    .modalPriority{
+                        width: 30%;
+                        display: flex;
+                        justify-content: center;
+                        padding: 5px;
+                        border-radius: 5px;
+    
+                        
+                    }
+    
+                    .modalStage{
+                        width: 35%;
+                        display: flex;
+                        justify-content: center;
+                        padding: 5px;
+                        border-radius: 5px;
+    
+                    }
+                }
+
+                
+
+                
+            }
+
+            .midModal{
+                padding: 10px;
+                display: flex;
+                flex-direction: row;
+                gap: 10%;
+                width: 100%;
+
+                .commentSectionModal{
+                    width: 70%;
+                    display: flex;
+                    flex-direction: column;
+
+                    ul {
+                        list-style-type: none;
+                    }
+
+                    button{
+                        width: 20%;
+                    }
+                }
+
+                .attachSectionModal{
+                    width: 30%;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+
+            .green{
+                background-color: #7fc6a4;
+            }
+
+            .yellow{
+                background-color: #fed766;
+            }
+
+            .red{
+                background-color: #aa5042;
+            }
+
+            .gray{
+                background-color: #bbbbbf;
+            }
+        }
+    }
+
+
+
+    .addNewModal{
+        
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(196, 196, 196, 0.699);
+    
+
+    .modal-content{
+        position: relative;
+        height: 50%;
+        width: 50%;
+        background-color: #ffffff;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        justify-content:flex-start;
+        gap: 10%;
+
+
+        .closeModal{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .topModal{
+            display: flex;
+            flex-direction: row;
+            justify-content:space-between;
+            gap: 5%;
+            margin-top: 30px;
+
+            .modalSummary{
+                width: 50%;
+                
+                padding: 5px;
+                border-radius: 5px;
+
+                input{
+                    background-color: rgba(236, 236, 236, 0.699);
+                    border: none;
+                    width: 100%;
+                    padding: 5px;
+                    height: 50%;
+                    vertical-align: top;
+                }
+            }
+
+            .topLeftModal{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 50%;
+
+                .modalAsignee{
+                    width: 30%;
+                    display: flex;
+                    justify-content: center;
+                    background-color: #7fc6a4;
+                    padding: 5px;
+                    border-radius: 5px;
+                }
+
+                .modalPriority{
+                    width: 30%;
+                    display: flex;
+                    justify-content: center;
+                    padding: 5px;
+                    border-radius: 5px;
+
+                    
+                }
+
+                .modalStage{
+                    width: 30%;
+                    display: flex;
+                    justify-content: center;
+                    padding: 5px;
+                    border-radius: 5px;
+
+                }
+            }
+
+            
+
+            
+        }
+
+        .midModal{
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            gap: 10%;
+            width: 100%;
+            height: 45%;
+
+            .commentSectionModal{
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+
+                ul {
+                    list-style-type: none;
+                }
+
+                button{
+                    width: 20%;
+                }
+            }
+
+            .attachSectionModal{
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .botModal{
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
+
+            .saveBtn{
+                background-color: #7fc6a4;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+
+        .green{
+            background-color: #7fc6a4;
+        }
+
+        .yellow{
+            background-color: #fed766;
+        }
+
+        .red{
+            background-color: #aa5042;
+        }
+
+        .gray{
+            background-color: #bbbbbf;
+        }
+    }
+}
 }

@@ -9,6 +9,7 @@ import taskNotesRoute from "./routes/taskNotes.js"
 import tasksRoute from "./routes/tasks.js"
 import projectRoute from "./routes/projects.js"
 import priceOfferRoute from "./routes/priceOffer.js"
+import activitiesRoute from "./routes/activities.js"
 import cookieParser from "cookie-parser"
 
 
@@ -43,6 +44,7 @@ app.use("/api/tasknotes", taskNotesRoute)
 app.use("/api/tasks", tasksRoute)
 app.use("/api/projects", projectRoute)
 app.use("/api/priceoffer", priceOfferRoute)
+app.use("/api/activities", activitiesRoute)
 
 app.use((err, req, res, next) => {
     const errorStatus = err.status || 500

@@ -47,6 +47,8 @@ export const getPriceOffers = async (req, res, next) => {
         next(err)
     }
 }
+
+
 export const deleteIdFromItems = async (req, res, next) => {
     try {
         const item = PriceOffer.findById(req.params.id)
