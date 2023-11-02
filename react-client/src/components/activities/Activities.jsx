@@ -144,7 +144,7 @@ export default function Activities() {
             const newRow = await axiosInstance.get(`/activities/${currentId}`)
             setRowData(newRow.data)
 
-            
+            //test commit
         } catch (err) {
             console.log(err)
         }
