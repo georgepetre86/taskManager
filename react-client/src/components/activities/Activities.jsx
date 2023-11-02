@@ -143,6 +143,8 @@ export default function Activities() {
             await axios.put(`/activities/${currentId}`, saveData)
             const newRow = await axiosInstance.get(`/activities/${currentId}`)
             setRowData(newRow.data)
+
+            
         } catch (err) {
             console.log(err)
         }
