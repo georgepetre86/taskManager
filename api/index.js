@@ -11,8 +11,7 @@ import projectRoute from "./routes/projects.js"
 import priceOfferRoute from "./routes/priceOffer.js"
 import activitiesRoute from "./routes/activities.js"
 import cookieParser from "cookie-parser"
-
-const cors = require("cors")
+import cors from "cors"
 
 const app = express()
 dotenv.config()
