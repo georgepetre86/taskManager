@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import "./activities.scss"
 import { activities } from '../../dummyData'
@@ -8,7 +8,11 @@ import useFetch from '../../hooks/useFetch'
 import axios from 'axios'
 import CloseIcon from '@mui/icons-material/Close';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+
+
 export default function Activities() {
+
+    const axiosInstance = axios.create({baseURL:process.env.REACT_APP_API_URL,})
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 100 },
@@ -67,6 +71,10 @@ export default function Activities() {
       const [rowData, setRowData] = useState({})
       const [inputActivity, setInputActivity] = useState({})
       const [currentId, setCurrentId] = useState("")
+      const [currentAsignee, setCurrentAsignee] = useState("all")
+      const [dataToShow, setDataToShow] = useState({})
+      const [currentPriority, setCurrentPriority] = useState("all")
+      const [currentStage, setCurrentStage] = useState("all")
       //set Modal 
 
       //
@@ -82,9 +90,14 @@ export default function Activities() {
       const {data, loading, error, reFetch} = useFetch("/activities")
 
       //maps a frontend id to each row from the database
+      useEffect(() => {
         data.forEach((item, i) => {
-            item.id = i+1;
-        })
+          item.id = i+1;
+      })
+        setDataToShow(data)
+      }, [data])
+        
+        
 
     const handleCloseActivityModal = () => {
         setActivityModal(false)
@@ -125,24 +138,133 @@ export default function Activities() {
     const handleChangeStage = async (e) => {
         e.preventDefault()
         const saveData = {stage: e.target.value}
-        console.log(saveData)
+        
         try {
             await axios.put(`/activities/${currentId}`, saveData)
-            const newRow = await axios.get(`/activities/${currentId}`)
+            const newRow = await axiosInstance.get(`/activities/${currentId}`)
             setRowData(newRow.data)
         } catch (err) {
             console.log(err)
         }
     }
 
-    console.log(inputActivity)
+  const handleFilterAsignee = (e) => {
+      setCurrentAsignee(e.target.value)
+    }
+
+  const handleFilterPriority = (e) => {
+      setCurrentPriority(e.target.value)
+  }
+
+  const handleFilterStage = (e) => {
+    setCurrentStage(e.target.value)
+  }
+
+  //filter based on asignee, priority and stage
+  useEffect(() => {
+          if(currentAsignee === "all" && currentPriority === "all" && currentStage === "all"){
+            reFetch()
+          }
+          
+          if(currentAsignee === "all" && currentPriority !== "all"){
+            setDataToShow(data.filter((item) => item.priority === currentPriority))
+            console.log(dataToShow)
+          }
+
+          if(currentAsignee === "all" && currentStage !== "all"){
+            setDataToShow(data.filter((item) => item.stage === currentStage))
+            
+          }
+
+          if(currentAsignee !== "all" && currentPriority !== "all"){
+            const asigneeList = data.filter((item) => item.asignee === currentAsignee)
+            setDataToShow(asigneeList.filter((item) => item.priority === currentPriority))
+          }
+
+          if(currentAsignee !== "all" && currentStage !== "all"){
+            const asigneeList = data.filter((item) => item.asignee === currentAsignee)
+            setDataToShow(asigneeList.filter((item) => item.stage === currentStage))
+          }
+
+          if(currentAsignee !== "all" && currentStage === "all"){
+            setDataToShow(data.filter((item) => item.asignee === currentAsignee))
+          }
+
+          if(currentAsignee === "all" && currentPriority !== "all" && currentStage !== "all"){
+            const stageList = data.filter((item) => item.stage === currentStage)
+            setDataToShow(stageList.filter((item) => item.priority === currentPriority))
+            
+          }
+
+          if(currentAsignee !== "all" && currentPriority !== "all" && currentStage !== "all"){
+            const stageList = data.filter((item) => item.stage === currentStage)
+            const priorityList = stageList.filter((item) => item.priority === currentPriority)
+            setDataToShow(priorityList.filter((item) => item.asignee === currentAsignee))
+            
+          }
+      
+  },[currentAsignee, currentPriority, currentStage])
+
+  
+  
+
+    
 
   return (
     <div className="activities">
-        <div className='addNewButton' onClick={()=>handleAddNewActivity()}>Add New</div>
+        <div className='topButtons'>
+          <div className='addNewButton' onClick={()=>handleAddNewActivity()}>Add New</div>
+          <div className='filterByName'>
+          <FormControl sx={{ m: 1, minWidth: 100 }} size="small">
+                        <InputLabel id="demo-select-small">asignee</InputLabel>
+                        <Select
+                          labelId="demo-select-small"
+                          id="demo-select-small"
+                          value={currentAsignee}
+                          label="priority"
+                          onChange={handleFilterAsignee}
+                        >
+                          <MenuItem value={"all"}>all</MenuItem>
+                          <MenuItem value={"george"}>george</MenuItem>
+                          <MenuItem value={"mihai"}>mihai</MenuItem>
+                        </Select>
+            </FormControl>
+            <FormControl sx={{ m: 1, minWidth: 100 }} size="small">
+                        <InputLabel id="demo-select-small">priority</InputLabel>
+                        <Select
+                          labelId="demo-select-small"
+                          id="demo-select-small"
+                          value={currentPriority}
+                          label="priority"
+                          onChange={handleFilterPriority}
+                        >
+                          <MenuItem value={"all"}>all</MenuItem>
+                          <MenuItem value={"low"}>low</MenuItem>
+                          <MenuItem value={"medium"}>medium</MenuItem>
+                          <MenuItem value={"high"}>high</MenuItem>
+                        </Select>
+            </FormControl>
+            <FormControl sx={{ m: 1, minWidth: 100 }} size="small">
+                        <InputLabel id="demo-select-small">stage</InputLabel>
+                        <Select
+                          labelId="demo-select-small"
+                          id="demo-select-small"
+                          value={currentStage}
+                          label="priority"
+                          onChange={handleFilterStage}
+                        >
+                          <MenuItem value={"all"}>all</MenuItem>
+                          <MenuItem value={"raised"}>raised</MenuItem>
+                          <MenuItem value={"in progress"}>in progress</MenuItem>
+                          <MenuItem value={"completed"}>completed</MenuItem>
+                        </Select>
+            </FormControl>
+          </div>
+        </div>
+        
         <div className="activitiesWrapper">
                 <DataGrid
-                rows={data}
+                rows={dataToShow}
                 columns={columns}
                 disableSelectionOnClick
                 onRowClick={(rows)=>{handleViewActivity(rows.id)}}

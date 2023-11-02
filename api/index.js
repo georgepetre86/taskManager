@@ -12,6 +12,7 @@ import priceOfferRoute from "./routes/priceOffer.js"
 import activitiesRoute from "./routes/activities.js"
 import cookieParser from "cookie-parser"
 
+const cors = require("cors")
 
 const app = express()
 dotenv.config()
@@ -32,6 +33,8 @@ mongoose.connection.on("disconnected", () => {
 mongoose.connection.on("connected", () => {
     console.log("MongoDB connected")
 })
+
+app(cors())
 
 //middlewares
 app.use(cookieParser())
