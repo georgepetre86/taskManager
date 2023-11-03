@@ -27,9 +27,14 @@
             display: flex;
             flex-direction: row;
             gap: 20px;
-            
+        }
 
-            
+        .completedCheckbox{
+            background-color: #aa5042ea;
+            padding: 10px 20px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
         }
     }
     
@@ -148,6 +153,56 @@
                     border-radius: 5px;
                     display: flex;
                     flex-direction: column;
+                    font-size: 14px;
+
+
+                    .summaryLine{
+                        display: flex;
+                        flex-direction: row;
+                        width: 100%;
+                    }
+
+                    .editSummaryModal{
+                        background-color: #7fc6a480;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        border-radius: 10px;
+                        width: 100%;
+                        border: 1px solid #7fc6a480;
+
+                        input{
+                            flex: 3;
+                            border: none;
+                            padding: 10px;
+                            border-top-left-radius: 10px;
+                            border-bottom-left-radius: 10px;
+                            font-size: 14px;
+                            &:focus {
+                            border: none;
+                            outline: none;
+                            }
+                        }
+
+                        button{
+                            flex: 0.5;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-weight: 500;
+                            font-size: 14px;
+                            color: rgb(95, 95, 95);
+                            cursor: pointer;
+                            border: none;
+                            background: none;
+                           
+
+                            &:hover{
+                                color: #7fc6a4;
+                            }
+                        }
+                       
+                    }
 
                     span{
                     background-color: rgba(255, 255, 255, 0.699);
@@ -155,8 +210,8 @@
                     border-radius: 10px;
                     width: 100%;
                     padding: 10px;
-                    height: 100%;
                     vertical-align: top;
+                    font-size: 14px;
                     }
                 }
 
@@ -165,6 +220,7 @@
                     flex-direction: row;
                     justify-content: space-between;
                     width: 50%;
+                    
 
                     .modalAsignee{
                         width: 25%;
@@ -173,6 +229,7 @@
                         background-color: #7fc6a4;
                         padding: 5px;
                         border-radius: 5px;
+                        
                     }
     
                     .modalPriority{
@@ -205,7 +262,7 @@
                 display: flex;
                 flex-direction: row;
                 justify-content:center;
-                gap: 10%;
+                gap: 2%;
                 width: 98%;
                 height: 45%;
     
@@ -215,6 +272,7 @@
                     flex-direction: column;
                     border: 1px solid #7fc6a4;
                     border-radius: 10px;
+                    position: relative;
     
                     .topCommentSection{
                         display: flex;
@@ -235,6 +293,55 @@
                             display: flex;
                             align-items: center;
                         }
+                    }
+
+                    .addNewComment{
+                        position: absolute;
+                        right: 0;
+                        top: 40px;
+                        z-index: 999;
+                        background-color: #fff;
+                        width: 60%;
+                        height: 40%;
+                        border: 1px solid #7fc6a4;
+                        border-radius: 10px;
+                        padding: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10%;
+
+                        .topLine{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            span{
+                                font-size: 14px;
+                                font-weight: 400;
+                            }
+                        }
+
+                        input{
+                            border: 1px solid #fed766;
+                            border-radius: 10px;
+                            height: 40%;
+
+                            &:focus{
+                                outline: none;
+                            }
+                        }
+
+                        button{
+                            background: #fed766;
+                            cursor: pointer;
+                            border: none;
+                            color: #000;
+                            font-size: 14px;
+                            border-radius: 10px;
+                            
+                            padding: 5px;
+                        }
+
+                        
                     }
 
                     .allCommentsSection{
@@ -391,7 +498,7 @@
 
     .modal-content{
         position: relative;
-        height: 50%;
+        height: 25%;
         width: 50%;
         background-color: #ffffff;
         padding: 20px;
@@ -399,7 +506,7 @@
         flex-direction: column;
         border-radius: 20px;
         justify-content:flex-start;
-        gap: 10%;
+        gap: 30%;
 
 
         .closeModal{
@@ -414,7 +521,7 @@
             flex-direction: row;
             justify-content:space-between;
             gap: 5%;
-            margin-top: 30px;
+            margin-top: 50px;
             width: 100%;
 
             .modalSummary{
@@ -437,7 +544,7 @@
                     
                     
                     font-weight: 500;
-                    font-size: 18px;
+                    font-size: 16px;
                     color: rgb(95, 95, 95);
                   }
                   input {
@@ -461,7 +568,8 @@
                 flex-direction: row;
                 justify-content: space-between;
                 width: 50%;
-
+                height:fit-content;
+                
                 .modalAsignee{
                     width: 30%;
                     display: flex;

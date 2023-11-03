@@ -3,12 +3,13 @@ import { useState } from 'react';
 import "./activities.scss"
 import { activities } from '../../dummyData'
 import {DataGrid} from '@mui/x-data-grid';
-import { CheckCircleOutline, Comment, AttachFile, CleaningServices, Delete, Edit } from '@mui/icons-material';
+import { CheckCircleOutline, Comment, AttachFile, CleaningServices, Delete, Edit, Close } from '@mui/icons-material';
 import useFetch from '../../hooks/useFetch'
 import axios from 'axios'
 import CloseIcon from '@mui/icons-material/Close';
-import { FormControl, InputLabel, MenuItem, Select} from '@mui/material';
+import { Checkbox, FormControl, InputLabel, MenuItem, Select} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 export default function Activities() {
@@ -70,13 +71,9 @@ export default function Activities() {
       //fetches all the activities from the database
       const {data, loading, error, reFetch} = useFetch("/activities")
 
-      //maps a frontend id to each row from the database
-      useEffect(() => {
-        data.forEach((item, i) => {
-          item.id = i+1;
-      })
-        setDataToShow(data)
-      }, [data])
+    
+
+
 
       // Manage useStates
 
@@ -89,7 +86,71 @@ export default function Activities() {
       const [dataToShow, setDataToShow] = useState({})
       const [currentPriority, setCurrentPriority] = useState("all")
       const [currentStage, setCurrentStage] = useState("all")
-      
+      const [editSummaryModal, setEditSummaryModal] = useState(false)
+      const [inputEditSummary, setInputEditSummary] = useState({})
+      const [completedChecked, setCompletedChecked] = useState(false)
+      const [mainData, setMainData] = useState({})
+      const [addCommentModal, setAddCommentModal] = useState(false)
+      const [inputComment, setInputComment] = useState({})
+
+        //maps a frontend id to each row from the database and checks if the remove completed button is active
+        useEffect(() => {
+          data.forEach((item, i) => {
+            item.id = i+1;})
+
+          if(completedChecked){
+           const findIndexWhereCompleted = (arrayObjects) => {
+              const arrayOfIndex = []
+              arrayObjects.forEach((item,i) => {
+                if(item.stage === "completed") {
+                  arrayOfIndex.push(i)
+                }
+              })
+
+              return arrayOfIndex;
+           }
+           
+
+            //if the remove completed checkbox is active the data is being filtered
+            const newData = data.filter((item) => item.stage !== "completed")
+            setMainData(newData)
+            console.log(newData)
+          }else {
+            setMainData(data)
+          }
+          
+        }, [data, completedChecked])
+
+        useEffect(() => {
+          setDataToShow(mainData)
+        }, [mainData])
+
+      //actions done when the remove complete checkbox is active
+      const handleCompletedChecked = () => {
+        setCompletedChecked(!completedChecked)
+        setCurrentAsignee("all")
+        setCurrentPriority("all")
+        setCurrentStage("all")
+      }
+
+      //handle Input Comment in Activity Modal
+      const handleInputComment = (e) => {
+        setInputComment({...inputComment, comment: e.target.value})
+      }
+
+      //ADD COMMENT TO DATABASE
+      const handleAddCommentToDatabase = async () => {
+        try {
+            await axios.put(`/activities/${currentId}`, inputComment)
+            const newRowData = await axios.get(`/activities/${currentId}`)
+            setRowData(newRowData.data)
+            setAddCommentModal(false)
+            setInputComment({})
+        } catch (err) {
+            console.log(err)
+        }
+
+      }
 
       //What happens when the user clicks on one activity in the data table
       const handleViewActivity = (id) => {
@@ -120,6 +181,23 @@ export default function Activities() {
         setInputActivity({...inputActivity, asignee: e.target.value})
     }
 
+
+    //Handle ADD new activity to database
+    const handleAddNewActivityToDatabase = async () => {
+      const activity = {...inputActivity, comment: [], attach: []}
+      try {
+          const savedActivity = await axios.post(`/activities`, activity)
+         setRowData(savedActivity.data)
+      } catch (err) {
+          console.log(err)
+      }
+          setInputActivity({})
+          setAddNewModal(false)
+          reFetch()
+         
+    }
+
+    
     // Add priority to the inputActivity object
     const handlePriority = (e) => {
         setInputActivity({...inputActivity, priority: e.target.value})
@@ -132,12 +210,30 @@ export default function Activities() {
 
     //Handle changes in the activity 
 
-    const handleChangeAsignee = (e) => {
+    const handleChangeAsignee = async (e) => {
+      e.preventDefault()
+      const saveData = {asignee: e.target.value}
 
+      try {
+        await axios.put(`/activities/${currentId}`, saveData)
+        const newRow = await axios.get(`/activities/${currentId}`)
+        setRowData(newRow.data)
+      } catch (err) {
+        console.log(err)
+      }
     }
 
-    const handleChangePriority = (e) => {
+    const handleChangePriority = async (e) => {
+      e.preventDefault()
+      const saveData = {priority: e.target.value}
 
+      try {
+        await axios.put(`/activities/${currentId}`, saveData)
+        const newRow = await axios.get(`/activities/${currentId}`)
+        setRowData(newRow.data)
+      } catch (err) {
+        console.log(err)
+      }
     }
 
     const handleChangeStage = async (e) => {
@@ -154,6 +250,33 @@ export default function Activities() {
         }
     }
 
+    //handle open edit summary modal
+    const handleOpenEditSummaryModal = () => {
+      setEditSummaryModal(!editSummaryModal) // open the modal
+      setInputEditSummary({summary: rowData.summary}) // initialize the input with current summary value
+    }
+
+    //handle edit summary
+
+    const handleEditSummaryModal = (e) => {
+      setInputEditSummary({...inputEditSummary, [e.target.name]: e.target.value})
+    }
+
+    //handle UPDATE summary
+    const handleUpdateSummary = async () => {
+      const saveData = {summary: inputEditSummary.summary}
+
+      try {
+          await axios.put(`/activities/${currentId}`, saveData)
+          const newRow = await axios.get(`/activities/${currentId}`)
+          setRowData(newRow.data)
+          setEditSummaryModal(false)
+      } catch (err) {
+          console.log(err)
+      }
+
+    }
+    
     // Handle filters in the main page
   const handleFilterAsignee = (e) => {
       setCurrentAsignee(e.target.value)
@@ -167,54 +290,61 @@ export default function Activities() {
     setCurrentStage(e.target.value)
   }
 
+  //handle open comment modal
+  const handleOpenCommentModal = () => {
+    setAddCommentModal(true)
+  }
+
   //filter based on asignee, priority and stage
   useEffect(() => {
           if(currentAsignee === "all" && currentPriority === "all" && currentStage === "all"){
-            reFetch()
+            setDataToShow(mainData)
           }
           
           if(currentAsignee === "all" && currentPriority !== "all"){
-            setDataToShow(data.filter((item) => item.priority === currentPriority))
-            console.log(dataToShow)
+            setDataToShow(mainData.filter((item) => item.priority === currentPriority))
+            
           }
 
           if(currentAsignee === "all" && currentStage !== "all"){
-            setDataToShow(data.filter((item) => item.stage === currentStage))
+            setDataToShow(mainData.filter((item) => item.stage === currentStage))
             
           }
 
           if(currentAsignee !== "all" && currentPriority !== "all"){
-            const asigneeList = data.filter((item) => item.asignee === currentAsignee)
+            const asigneeList = mainData.filter((item) => item.asignee === currentAsignee)
             setDataToShow(asigneeList.filter((item) => item.priority === currentPriority))
           }
 
           if(currentAsignee !== "all" && currentStage !== "all"){
-            const asigneeList = data.filter((item) => item.asignee === currentAsignee)
+            const asigneeList = mainData.filter((item) => item.asignee === currentAsignee)
             setDataToShow(asigneeList.filter((item) => item.stage === currentStage))
           }
 
           if(currentAsignee !== "all" && currentStage === "all"){
-            setDataToShow(data.filter((item) => item.asignee === currentAsignee))
+            setDataToShow(mainData.filter((item) => item.asignee === currentAsignee))
           }
 
           if(currentAsignee === "all" && currentPriority !== "all" && currentStage !== "all"){
-            const stageList = data.filter((item) => item.stage === currentStage)
+            const stageList = mainData.filter((item) => item.stage === currentStage)
             setDataToShow(stageList.filter((item) => item.priority === currentPriority))
             
           }
 
           if(currentAsignee !== "all" && currentPriority !== "all" && currentStage !== "all"){
-            const stageList = data.filter((item) => item.stage === currentStage)
+            const stageList = mainData.filter((item) => item.stage === currentStage)
             const priorityList = stageList.filter((item) => item.priority === currentPriority)
             setDataToShow(priorityList.filter((item) => item.asignee === currentAsignee))
             
           }
       
-  },[currentAsignee, currentPriority, currentStage])
+  },[currentAsignee, currentPriority, currentStage, completedChecked])
 
   
   return (
     <div className="activities">
+
+      {/* Top Buttons */}
         <div className='topButtons'>
           <div className='addNewButton' onClick={()=>handleAddNewActivity()}>Add New</div>
 
@@ -231,6 +361,7 @@ export default function Activities() {
                           onChange={handleFilterAsignee}
                         >
                           <MenuItem value={"all"}>all</MenuItem>
+                          <MenuItem value={"unassigned"}>unassigned</MenuItem>
                           <MenuItem value={"george"}>george</MenuItem>
                           <MenuItem value={"mihai"}>mihai</MenuItem>
                         </Select>
@@ -266,6 +397,14 @@ export default function Activities() {
                         </Select>
             </FormControl>
           </div>
+
+          <div className='completedCheckbox'>
+                      <Checkbox
+                        checked={completedChecked}
+                        onClick={() => handleCompletedChecked()}
+                        sx={{ "& .MuiSvgIcon-root": { fontSize: 20 } }}
+                      />Remove completed
+          </div>
         </div>
         
 
@@ -276,7 +415,7 @@ export default function Activities() {
                 columns={columns}
                 disableSelectionOnClick
                 onRowClick={(rows)=>{handleViewActivity(rows.id)}}
-                pageSize={10}
+                pageSize={50}
                 rowsPerPageOptions={[5]}
                 checkboxSelection
             />
@@ -291,7 +430,26 @@ export default function Activities() {
 
                 <div className='topModal'>
                 
-                    <div className='modalSummary'><h4>Summary</h4><span>{rowData.summary}</span></div>
+                    <div className='modalSummary'>
+                      <div className='summaryLine'>
+                        <h4>Summary</h4>
+                        <EditIcon style={{fontSize: "18px", cursor: "pointer", color: "#fed766"}} onClick={()=>handleOpenEditSummaryModal()}/>
+                      </div>
+                      {editSummaryModal && <div className='editSummaryModal'>
+                            <input
+                              name="summary"
+                              type="text"
+                              value={inputEditSummary.summary}
+                              onChange={handleEditSummaryModal}
+                            />
+                            <button onClick={()=>handleUpdateSummary()}>Update</button>
+                          
+                        </div>}
+                      {!editSummaryModal && <span>{rowData.summary}</span>}
+                    
+                    </div>
+
+
                     <div className='topRightModal'>
                     <div className='modalAsignee'>
                     <FormControl sx={{ m: 1, minWidth: 100 }} size="small">
@@ -300,9 +458,10 @@ export default function Activities() {
                           labelId="demo-select-small"
                           id="demo-select-small"
                           value={rowData.asignee}
-                          label="Asignee"
+                          label="asignee"
                           onChange={handleChangeAsignee}
-                        >
+                        > 
+                          <MenuItem value={"unassigned"}>unassigned</MenuItem>
                           <MenuItem value={"george"}>george</MenuItem>
                           <MenuItem value={"mihai"}>mihai</MenuItem>
                         </Select>
@@ -348,8 +507,19 @@ export default function Activities() {
                     <div className='commentSectionModal'>
                       <div className='topCommentSection'>
                         <span>Comments</span>
-                        <button><AddIcon />Add New</button>
+                        <button onClick={()=>handleOpenCommentModal()}><AddIcon />Add New</button>
                       </div>
+                      {addCommentModal && <div className='addNewComment'>
+                            <div className='topLine'><span>Add new comment</span><Close style={{fontSize: "18px", cursor: "pointer"}} onClick={()=>{setAddCommentModal(false);setInputComment({})}}/></div>
+                            <input
+                              name="comment"
+                              type="text"
+                              value={inputComment.comment}
+                              onChange={handleInputComment}
+                            />
+                            <button onClick={()=>handleAddCommentToDatabase()}>Add</button>
+
+                          </div>}
                       <div className='allCommentsSection'>
                 <table>
                 <thead>
@@ -420,7 +590,7 @@ export default function Activities() {
                     </div>
                 </div>
                 <div className='botModal'>
-                    <div className='saveBtn'>Save</div>
+                    {/* <div className='saveBtn'>Save</div> */}
                 </div>
 
                 </div>
@@ -430,7 +600,7 @@ export default function Activities() {
             
 
             {/*  Add new activity Modal  */}
-            {addNewModal && <div className='addNewModal'>
+        {addNewModal && <div className='addNewModal'>
                 
                 <div  className='modal-content'>
                 <div className='closeModal' onClick={()=>setAddNewModal(false)}><CloseIcon /></div>
@@ -438,6 +608,7 @@ export default function Activities() {
                 <div className='topModal'>
                     
                     <div className='modalSummary'>
+                    <h3>Add new activity</h3>
                     <span>Summary</span>
                     <input
                         name="summary"
@@ -458,7 +629,8 @@ export default function Activities() {
                           value={inputActivity.asignee}
                           label="Asignee"
                           onChange={handleAsignee}
-                        >
+                        > 
+                          <MenuItem value={"unassigned"}>unassigned</MenuItem>
                           <MenuItem value={"george"}>george</MenuItem>
                           <MenuItem value={"mihai"}>mihai</MenuItem>
                         </Select>
@@ -480,7 +652,7 @@ export default function Activities() {
                         </Select>
                       </FormControl>
                     </div>
-                    <div className={`modalStage ${inputActivity.stage === "completed" ? "green" : inputActivity.stage === "raised"? "gray" : inputActivity.stage === "in progress" ? "yellow" : "red"}`}>
+                    <div className={`modalStage ${inputActivity.stage === "completed" ? "green" : inputActivity.stage === "raised"? "gray" : inputActivity.stage === "in progress" ? "yellow" : "gray"}`}>
                     <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                         <InputLabel id="demo-select-small">stage</InputLabel>
                         <Select
@@ -499,7 +671,7 @@ export default function Activities() {
                     </div>  
                 </div>
 
-                <div className='midModal'>
+                {/* <div className='midModal'>
                    
                     <div className='commentSectionModal'>
                       <div className='topCommentSection'>
@@ -517,15 +689,15 @@ export default function Activities() {
                         <button><AddIcon />Add New</button>
                       </div>
                     </div>
-                </div>
+                </div> */}
                 <div className='botModal'>
-                    <div className='saveBtn'>Save</div>
+                    <div className='saveBtn' onClick={()=>handleAddNewActivityToDatabase()}>Save</div>
                 </div>
 
                 </div>
 
 
-            </div>}
+        </div>}
     </div>
   )
 }
