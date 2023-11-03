@@ -17,7 +17,7 @@ const Activities = new mongoose.Schema({
         required: true,
     },
     attach:{
-        type: String,
+        type: [String],
     },
     comment:{
         type: [String],

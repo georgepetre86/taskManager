@@ -3,17 +3,18 @@ import { useState } from 'react';
 import "./activities.scss"
 import { activities } from '../../dummyData'
 import {DataGrid} from '@mui/x-data-grid';
-import { CheckCircleOutline, Comment, AttachFile, CleaningServices } from '@mui/icons-material';
+import { CheckCircleOutline, Comment, AttachFile, CleaningServices, Delete, Edit } from '@mui/icons-material';
 import useFetch from '../../hooks/useFetch'
 import axios from 'axios'
 import CloseIcon from '@mui/icons-material/Close';
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select} from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 
 export default function Activities() {
 
     
-
+    // Manage appearence of the data table
     const columns = [
         { field: 'id', headerName: 'ID', width: 100 },
         { field: 'summary', headerName: 'Summary', width: 800, renderCell: (params) => {
@@ -40,7 +41,7 @@ export default function Activities() {
         },
         { field: 'stage', headerName: 'Stage', width: 130, renderCell: (params) => {
             return(
-              <div className={`activityStage ${params.row.stage === "completed" ? "green" : params.row.stage === "assigned"? "gray" : params.row.stage === "in progress" ? "yellow" : "red"}`}>{params.row.stage}</div>
+              <div className={`activityStage ${params.row.stage === "completed" ? "green" : params.row.stage === "assigned"? "gray" : params.row.stage === "in progress" ? "yellow" : "gray"}`}>{params.row.stage}</div>
             )
           } },
         {field:'actions',
@@ -50,7 +51,7 @@ export default function Activities() {
             return(
                 <>  
                     <button className='activityListView'>View</button>
-                    <CheckCircleOutline className='activityListDone' />
+                    {/* <CheckCircleOutline className='activityListDone' /> */}
                 </>
                 
             )
@@ -58,33 +59,13 @@ export default function Activities() {
         { field: 'extra', headerName: 'Extra', width: 130, renderCell: (params) => {
             return(
                 <>
-                    {params.row.comment === "true" ? <Comment /> : ""}
+                    {params.row.comment.length !== 0 ? <Comment /> : ""}
                     
-                    {params.row.attach === "true" ? <AttachFile /> : ""}
+                    {params.row.attach.length !== 0 ? <AttachFile /> : ""}
                 </>
             )
         } },
       ];
-
-      const [activityModal, setActivityModal] = useState(false)
-      const [addNewModal, setAddNewModal] = useState(false)
-      const [rowData, setRowData] = useState({})
-      const [inputActivity, setInputActivity] = useState({})
-      const [currentId, setCurrentId] = useState("")
-      const [currentAsignee, setCurrentAsignee] = useState("all")
-      const [dataToShow, setDataToShow] = useState({})
-      const [currentPriority, setCurrentPriority] = useState("all")
-      const [currentStage, setCurrentStage] = useState("all")
-      //set Modal 
-
-      //test push end to end 
-      //show the _id of the row clicked
-      const handleViewActivity = (id) => {
-        const getRow = data.find(elem => elem.id === id)
-        setCurrentId(getRow._id)
-        setActivityModal(true) 
-        setRowData(getRow)
-      }
 
       //fetches all the activities from the database
       const {data, loading, error, reFetch} = useFetch("/activities")
@@ -96,31 +77,55 @@ export default function Activities() {
       })
         setDataToShow(data)
       }, [data])
-        
-        
 
+      // Manage useStates
+
+      const [activityModal, setActivityModal] = useState(false)
+      const [addNewModal, setAddNewModal] = useState(false)
+      const [rowData, setRowData] = useState({})
+      const [inputActivity, setInputActivity] = useState({})
+      const [currentId, setCurrentId] = useState("")
+      const [currentAsignee, setCurrentAsignee] = useState("all")
+      const [dataToShow, setDataToShow] = useState({})
+      const [currentPriority, setCurrentPriority] = useState("all")
+      const [currentStage, setCurrentStage] = useState("all")
+      
+
+      //What happens when the user clicks on one activity in the data table
+      const handleViewActivity = (id) => {
+        const getRow = data.find(elem => elem.id === id)
+        setCurrentId(getRow._id)
+        setActivityModal(true) 
+        setRowData(getRow)
+      }
+
+      // What happens when the user closes the View activity Modal
     const handleCloseActivityModal = () => {
         setActivityModal(false)
         reFetch()
     }
     
-        //console.log(data)
+    // Open modal for adding new activity
     const handleAddNewActivity = () => {
         setAddNewModal(true)
     }
 
+    // Manage the input of data in the add new activity modal
     const handleInput = (e) => {
         setInputActivity({...inputActivity, [e.target.name]: e.target.value})
     }
 
+    // Add asignee to the inputActivity object
     const handleAsignee = (e) => {
         setInputActivity({...inputActivity, asignee: e.target.value})
     }
 
+    // Add priority to the inputActivity object
     const handlePriority = (e) => {
         setInputActivity({...inputActivity, priority: e.target.value})
     }
 
+    // Add stage to the inputActivity object
     const handleStage = (e) => {
         setInputActivity({...inputActivity, stage: e.target.value})
     }
@@ -149,6 +154,7 @@ export default function Activities() {
         }
     }
 
+    // Handle filters in the main page
   const handleFilterAsignee = (e) => {
       setCurrentAsignee(e.target.value)
     }
@@ -207,15 +213,14 @@ export default function Activities() {
   },[currentAsignee, currentPriority, currentStage])
 
   
-  
-
-    
-
   return (
     <div className="activities">
         <div className='topButtons'>
           <div className='addNewButton' onClick={()=>handleAddNewActivity()}>Add New</div>
+
+          {/* Filter buttons on main page */}
           <div className='filterByName'>
+            
           <FormControl sx={{ m: 1, minWidth: 100 }} size="small">
                         <InputLabel id="demo-select-small">asignee</InputLabel>
                         <Select
@@ -263,6 +268,8 @@ export default function Activities() {
           </div>
         </div>
         
+
+        {/* Data Grid view for the activities on the main page */}
         <div className="activitiesWrapper">
                 <DataGrid
                 rows={dataToShow}
@@ -273,45 +280,10 @@ export default function Activities() {
                 rowsPerPageOptions={[5]}
                 checkboxSelection
             />
-
-
-
-            {/* {<ul>
-                    <li>
-                        <div className='activityHeaders'>
-                            <div className="headersLeft">
-                                <div className="headersItem">ID</div>
-                                <div className="headersItem">Summary</div>
-                            </div>
-                            <div className="headersRight">
-                                <div className="headersItem right">Asignee</div>
-                                <div className="headersItem right">Priority</div>
-                                <div className="headersItem right">Stage</div>
-                                <div className="headersItem right">Actions</div>
-                            </div>
-                        </div>
-                    </li>
-                {activities.map(activity => (
-                    <li>
-                        <div className='activity'>
-                            <div className='activityLeft'>
-                                <div className="activityItem">{activity.id}</div>
-                                <div className="activityItem">{activity.summary}</div>
-
-                            </div>
-                            <div className='activityRight'>
-
-                                <div className="activityItem right">{activity.asignee}</div>
-                                <div className="activityItem right">{activity.priority}</div>
-                                <div className="activityItem right">{activity.stage}</div>
-                                <div className="activityItem right">actions</div>
-                            </div>
-                        </div>
-                    </li>
-                ))}
-            </ul>} */}
+    
         </div>
 
+        {/*View activity modal */}
         {activityModal && <div className='activityModal'>
                 
                 <div  className='modal-content'>
@@ -374,25 +346,90 @@ export default function Activities() {
                 <div className='midModal'>
                    
                     <div className='commentSectionModal'>
-                    <h4>Comments</h4>
-                        <ul>
-                            {rowData.comment.map((item) => 
-                            <li>{item}</li>)}
-                        </ul>
-                        <button>adauga </button>
+                      <div className='topCommentSection'>
+                        <span>Comments</span>
+                        <button><AddIcon />Add New</button>
+                      </div>
+                      <div className='allCommentsSection'>
+                <table>
+                <thead>
+                  <tr>
+                    <th style={{ width: "15%" }}>Date</th>
+                    <th style={{ width: "55%" }}>Note</th>
+                    <th style={{ width: "10%" }}>User</th>
+                    <th style={{ width: "10%" }}>Actions</th>
+                  </tr>
+                </thead>
+
+                {rowData.comment.map((item, index) => (
+                  <tr key={index}>
+                    <td></td>
+                    <td>{item}</td>
+                    <td></td>
+                    <td>
+                      <Delete
+                        style={{ color: "#d7826a", cursor: "pointer", fontSize: "18px" }}
+                        
+                      />
+                      <Edit
+                        style={{ color: "#fed766", cursor: "pointer", fontSize: "18px" }}
+                        
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </table>
+                      </div>
+                        
                     </div>
                     <div className='attachSectionModal'>
-                    <h4>Attachment</h4>
-                        {rowData.attach}
+                    <div className='topAttachSection'>
+                        <span>Attachments</span>
+                        <button><AddIcon />Add New</button>
                     </div>
+                    <div className='allAttachmentSection'>
+                    <table>
+                        <thead>
+                          <tr>
+                            <th style={{ width: "15%" }}>Date</th>
+                            <th style={{ width: "55%" }}>Note</th>
+                            <th style={{ width: "10%" }}>User</th>
+                            <th style={{ width: "10%" }}>Actions</th>
+                          </tr>
+                        </thead>
+
+                        {rowData.attach.map((item, index) => (
+                          <tr key={index}>
+                            <td></td>
+                            <td>{item}</td>
+                            <td></td>
+                            <td>
+                              <Delete
+                                style={{ color: "#d7826a", cursor: "pointer", fontSize: "18px" }}
+                                
+                              />
+                              <Edit
+                                style={{ color: "#fed766", cursor: "pointer", fontSize: "18px" }}
+                                
+                              />
+                            </td>
+                          </tr>
+                        ))} 
+                    </table>
+                    </div>
+                    </div>
+                </div>
+                <div className='botModal'>
+                    <div className='saveBtn'>Save</div>
                 </div>
 
                 </div>
 
 
             </div>}
+            
 
-
+            {/*  Add new activity Modal  */}
             {addNewModal && <div className='addNewModal'>
                 
                 <div  className='modal-content'>
@@ -401,7 +438,7 @@ export default function Activities() {
                 <div className='topModal'>
                     
                     <div className='modalSummary'>
-                    <h4>Summary</h4>
+                    <span>Summary</span>
                     <input
                         name="summary"
                         type="text"
@@ -409,6 +446,7 @@ export default function Activities() {
                         onChange={handleInput}
                       />
                     </div>
+                    
                     <div className='topLeftModal'>
                     <div className='modalAsignee'>
                     
@@ -464,15 +502,20 @@ export default function Activities() {
                 <div className='midModal'>
                    
                     <div className='commentSectionModal'>
-                    <h4>Comments</h4>
-                        <ul>
-                           
-                        </ul>
-                        <button>adauga </button>
+                      <div className='topCommentSection'>
+                        <span>Comments</span>
+                        <button><AddIcon />Add New</button>
+                      </div>
+                      <div className='allCommentsSection'>
+                          
+                      </div>
+                        
                     </div>
                     <div className='attachSectionModal'>
-                    <h4>Attachment</h4>
-                        {rowData.attach}
+                    <div className='topAttachSection'>
+                        <span>Attachments</span>
+                        <button><AddIcon />Add New</button>
+                      </div>
                     </div>
                 </div>
                 <div className='botModal'>
