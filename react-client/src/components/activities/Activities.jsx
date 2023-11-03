@@ -77,7 +77,7 @@ export default function Activities() {
       const [currentStage, setCurrentStage] = useState("all")
       //set Modal 
 
-      //test push
+      //test push 2
       //show the _id of the row clicked
       const handleViewActivity = (id) => {
         const getRow = data.find(elem => elem.id === id)
