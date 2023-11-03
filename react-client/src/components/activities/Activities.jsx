@@ -12,7 +12,7 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 export default function Activities() {
 
-    const axiosInstance = axios.create({baseURL:process.env.REACT_APP_API_URL,})
+    
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 100 },
@@ -141,12 +141,9 @@ export default function Activities() {
         
         try {
             await axios.put(`/activities/${currentId}`, saveData)
-            const newRow = await axiosInstance.get(`/activities/${currentId}`)
+            const newRow = await axios.get(`/activities/${currentId}`)
             setRowData(newRow.data)
 
-            //test commit
-
-            //sasdad
         } catch (err) {
             console.log(err)
         }
