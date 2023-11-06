@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ProjectsTopbar from '../../components/projectsTopbar/ProjectsTopbar'
 import "./projects.scss"
 import { Link } from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid';
 import { projectsRows } from '../../dummyData';
+import useFetch from '../../hooks/useFetch'
 
-const openProjects = projectsRows.filter(project => project.step === "open")
-const completedProjects = projectsRows.filter(project => project.step === "completed")
+
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -53,10 +53,31 @@ const columns = [
           
       )
   }},
-];
+]; 
 
 export default function Projects({tab}) {
   
+  const {data, loading, error, reFetch} = useFetch("/projects")
+
+  const [mainData, setMainData] = useState([])
+  const [openProjects, setOpenProjects] = useState([])
+  const [completedProjects, setCompletedProjects] = useState([])
+
+  console.log(data)
+
+  useEffect(() => {
+    data.forEach((item, i) => {
+      item.id = i+1;})
+
+    setMainData(data)
+
+    setOpenProjects(mainData.filter(project => project.step === "open"))
+    setCompletedProjects(mainData.filter(project => project.step === "completed"))
+  },[data])
+  
+  
+  
+
   return (
     <div className="projects">
         <ProjectsTopbar tab={tab}/>
@@ -65,7 +86,7 @@ export default function Projects({tab}) {
             
             <div className="projectsContent">
               <DataGrid
-                    rows={tab === "open" ? openProjects : tab === "completed" ? completedProjects : projectsRows}
+                    rows={tab === "open" ? openProjects : tab === "completed" ? completedProjects : mainData}
                     columns={columns}
                     disableSelectionOnClick
                     pageSize={10}

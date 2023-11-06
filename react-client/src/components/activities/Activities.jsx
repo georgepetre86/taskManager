@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState } from 'react';
 import "./activities.scss"
 import { activities } from '../../dummyData'
@@ -10,6 +10,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Checkbox, FormControl, InputLabel, MenuItem, Select} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
+import { AuthContext } from '../../context/AuthContext';
 
 
 export default function Activities() {
@@ -70,8 +71,8 @@ export default function Activities() {
 
       //fetches all the activities from the database
       const {data, loading, error, reFetch} = useFetch("/activities")
-
-    
+      const {user} = useContext(AuthContext)
+      
 
 
 
@@ -135,13 +136,14 @@ export default function Activities() {
 
       //handle Input Comment in Activity Modal
       const handleInputComment = (e) => {
-        setInputComment({...inputComment, comment: e.target.value})
+        setInputComment({...inputComment, note: e.target.value, user: user.username})
       }
 
       //ADD COMMENT TO DATABASE
       const handleAddCommentToDatabase = async () => {
+        setInputComment({...inputComment, date: Date.now()})
         try {
-            await axios.put(`/activities/${currentId}`, inputComment)
+            await axios.put(`/activities/addAnotherComment/${currentId}`, inputComment)
             const newRowData = await axios.get(`/activities/${currentId}`)
             setRowData(newRowData.data)
             setAddCommentModal(false)
@@ -150,6 +152,18 @@ export default function Activities() {
             console.log(err)
         }
 
+      }
+
+      //DELETE COMMENT
+      const handleDeleteComment = async (commId) => {
+        const body = {commentId: commId}
+        try {
+          const res = await axios.put(`/activities/deleteComment/${currentId}`, body)
+          const newRowData = await axios.get(`/activities/${currentId}`)
+          setRowData(newRowData.data)
+        } catch (err) {
+          console.log(err)
+        }
       }
 
       //What happens when the user clicks on one activity in the data table
@@ -295,35 +309,43 @@ export default function Activities() {
     setAddCommentModal(true)
   }
 
+  //Handle row selection in DataGrid
+  const handleRowsSelection = (ids) => {
+    const selectedRowsData = ids.map((id) => dataToShow.find((row) => row.id === id));
+    
+  }
+
   //filter based on asignee, priority and stage
   useEffect(() => {
           if(currentAsignee === "all" && currentPriority === "all" && currentStage === "all"){
             setDataToShow(mainData)
           }
           
-          if(currentAsignee === "all" && currentPriority !== "all"){
+          if(currentAsignee === "all" && currentPriority !== "all" && currentStage === "all"){
             setDataToShow(mainData.filter((item) => item.priority === currentPriority))
             
           }
 
-          if(currentAsignee === "all" && currentStage !== "all"){
+          if(currentAsignee === "all" && currentPriority === "all" && currentStage !== "all"){
             setDataToShow(mainData.filter((item) => item.stage === currentStage))
             
           }
 
-          if(currentAsignee !== "all" && currentPriority !== "all"){
+          if(currentAsignee !== "all" && currentPriority === "all" && currentStage === "all"){
+            setDataToShow(mainData.filter((item) => item.asignee === currentAsignee))
+          }
+
+          if(currentAsignee !== "all" && currentPriority !== "all" && currentStage === "all"){
             const asigneeList = mainData.filter((item) => item.asignee === currentAsignee)
             setDataToShow(asigneeList.filter((item) => item.priority === currentPriority))
           }
 
-          if(currentAsignee !== "all" && currentStage !== "all"){
+          if(currentAsignee !== "all" && currentPriority === "all" && currentStage !== "all"){
             const asigneeList = mainData.filter((item) => item.asignee === currentAsignee)
             setDataToShow(asigneeList.filter((item) => item.stage === currentStage))
           }
 
-          if(currentAsignee !== "all" && currentStage === "all"){
-            setDataToShow(mainData.filter((item) => item.asignee === currentAsignee))
-          }
+          
 
           if(currentAsignee === "all" && currentPriority !== "all" && currentStage !== "all"){
             const stageList = mainData.filter((item) => item.stage === currentStage)
@@ -418,6 +440,7 @@ export default function Activities() {
                 pageSize={50}
                 rowsPerPageOptions={[5]}
                 checkboxSelection
+                onSelectionModelChange={(ids)=>handleRowsSelection(ids)}
             />
     
         </div>
@@ -530,14 +553,14 @@ export default function Activities() {
                     <th style={{ width: "10%" }}>Actions</th>
                   </tr>
                 </thead>
-
+                <tbody>
                 {rowData.comment.map((item, index) => (
                   <tr key={index}>
-                    <td></td>
-                    <td>{item}</td>
-                    <td></td>
+                    <td>{item.date.split('T')[0]}{" "}{item.date.split('T')[1].split('Z')[0].split('.')[0]}</td>
+                    <td>{item.note}</td>
+                    <td>{item.user}</td>
                     <td>
-                      <Delete
+                      <Delete  onClick={()=>handleDeleteComment(item._id)}
                         style={{ color: "#d7826a", cursor: "pointer", fontSize: "18px" }}
                         
                       />
@@ -548,6 +571,8 @@ export default function Activities() {
                     </td>
                   </tr>
                 ))}
+                </tbody>
+                
               </table>
                       </div>
                         

@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const Activities = new mongoose.Schema({
     summary:{
@@ -19,9 +19,13 @@ const Activities = new mongoose.Schema({
     attach:{
         type: [String],
     },
-    comment:{
-        type: [String],
-    }
+    comment:[
+        new Schema({
+        date: {type: Date, default: Date.now}
+        , 
+        note: {type: String},
+        user: {type: String},    
+    })]
 },
 
 {

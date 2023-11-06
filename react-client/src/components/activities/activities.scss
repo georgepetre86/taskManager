@@ -345,34 +345,55 @@
                     }
 
                     .allCommentsSection{
+                        overflow: auto;
+                        border-bottom-left-radius: 10px;
+                        border-bottom-right-radius: 10px;
+                        -ms-overflow-style: none;
+                        scrollbar-width: none;
+                        width: 100%;
+                        ::-webkit-scrollbar{
+                            display: none;
+                        }
                         table {
                             width: 100%;
                             position: relative;
                             border-collapse: collapse;
+                            
                   
                             thead {
                               background: #7fc6a4;
+                              
                             }
-                            tr {
-                              margin: 0;
-                              padding: 0;
-                              th {
-                                padding: 5px 20px;
-                                color: #363636;
-                                font-size: 12px;
-                                
-                                
-                              }
-                  
-                              td {
-                                background-color: #f8f8f8;
-                                text-align: center;
-                                font-size: 12px;
-                                
-                                &:nth-child(2){
-                                    text-align: left;
+
+                            tbody{
+                                overflow: scroll;
+                                height: 100%;
+                                ::-webkit-scrollbar{
+                                    display: none;
                                 }
-                              }
+                                
+                                tr {
+                                    
+                                  margin: 0;
+                                  padding: 0;
+                                  th {
+                                    padding: 5px 20px;
+                                    color: #363636;
+                                    font-size: 12px;
+                                    
+                                    
+                                  }
+                      
+                                  td {
+                                    background-color: #f8f8f8;
+                                    text-align: center;
+                                    font-size: 12px;
+                                    
+                                    &:nth-child(2){
+                                        text-align: left;
+                                    }
+                                  }
+                            }
                             }
                           }
                     }

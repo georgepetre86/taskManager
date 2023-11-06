@@ -47,3 +47,23 @@ export const getAllActivities = async (req, res, next) => {
         next(err)
     }
 }
+
+//add another comment
+export const addAnotherComment = async (req, res, next) => {
+    try {
+        await Activities.findByIdAndUpdate(req.params.id, {$push:{"comment": req.body}})
+       res.status(200).json("New comment was added")
+   } catch (err) {
+       next(err)
+   }
+}
+
+//delete comment
+export const deleteComment = async (req, res, next) => {
+    try {
+        await Activities.updateOne({_id: req.params.id}, {$pull:{comment: {_id: req.body.commentId}}})
+        res.status(200).json("Comment deleted ")
+    } catch (err) {
+        next(err)
+    }
+}
