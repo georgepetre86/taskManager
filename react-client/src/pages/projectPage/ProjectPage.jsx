@@ -1,6 +1,6 @@
 import "./projectPage.scss"
 import { Home, Close, Person, CalendarMonth, Place} from '@mui/icons-material'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import ProjectTasks from '../../components/projectTasks/ProjectTasks'
 import ProjectDetails from '../../components/projectDetails/ProjectDetails'
 import ProjectWorkDetails from '../../components/projectWorkDetails/ProjectWorkDetails'
@@ -8,20 +8,32 @@ import ProjectRelationships from '../../components/projectRelationships/ProjectR
 import ProjectProgressBar from '../../components/projectProgressBar/ProjectProgressBar'
 import { useEffect, useState } from "react"
 import { tasks } from "../../dummyData"
+import useFetch from "../../hooks/useFetch"
 
 
 export default function ProjectPage() {
 
+    const location = useLocation();
+    
+    const projectId = location.pathname.split("/").pop()
+
+    const {data, loading, error, reFetch} = useFetch(`/projects/find/${projectId}`)
+    
     const [openEditTaskModal, setOpenEditTaskModal] = useState(false)
     const [accessedTask, setAccessedTask] = useState({})
+    const [dataToShow, setDataToShow] = useState({})
+
+    useEffect( () => {
+       setDataToShow(data)
+    },[data])
 
     const handleEditTask = (id) => {
         setOpenEditTaskModal(true)
         const task = tasks.filter(task => task.id === id)
         setAccessedTask(task[0])
-        
-        
     }
+
+    const jsonData = JSON.stringify(dataToShow)
 
     openEditTaskModal ? 
      (document.body.style.overflow = "hidden")
@@ -78,9 +90,9 @@ export default function ProjectPage() {
                 <li > • </li>
                 <li className='link'><Link to="/projects" style={{textDecoration: "none", color: "black"}} >Projects</Link></li>
                 <li> • </li>
-                <li className='link'>KRBS0001</li>
+                <li className='link'>{dataToShow.number}</li>
                 <li> • </li>
-                <li className='link'>Gigi Muschi</li>
+                <li className='link'>{dataToShow.client}</li>
             </ul>
             
         </div>
@@ -89,7 +101,7 @@ export default function ProjectPage() {
         </div>
         <div className="projectCards">
             <div className="projectCardsLeft">
-                <ProjectWorkDetails />
+                <ProjectWorkDetails dataToShow={{...dataToShow}}/>
                 <ProjectRelationships />
 
             </div>

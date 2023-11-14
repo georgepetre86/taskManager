@@ -1,7 +1,11 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const Project = new mongoose.Schema({
     number:{
+        type: String,
+        required: true,
+    },
+    client:{
         type: String,
         required: true,
     },
@@ -15,23 +19,23 @@ const Project = new mongoose.Schema({
     },
     startDate:{
         type: String,
-        required: true,
+        default: Date.now(),
     },
     deadline:{
         type: String,
-        required: true,
+                
     },
     progress:{
         type: String,
-        required: true,
+        
     },
     stage:{
         type: String,
-        required: true,
+        
     },
     status:{
         type: String,
-        required: true,
+        
     },
     children:{
         type: [String],
@@ -42,9 +46,13 @@ const Project = new mongoose.Schema({
     tasks:{
         type: [String],
     },
-    workDetails:{
-        type: [String]
-    },
+    workDetails:[
+        new Schema({
+        date: {type: Date, default: Date.now},
+        file: {type: [String]}, 
+        note: {type: String},
+        user: {type: String},    
+    })],
     details:{
         type: [String]
     }

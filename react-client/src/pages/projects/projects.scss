@@ -1,14 +1,83 @@
 .projects{
     width: 100%;
     padding: 0px 30px;
+    height: 100%;
 
     .projectsWrapper{
         padding: 30px 0px;
         width: 96%;
+        height: 100%;
+
+        .addNewProjectModal{
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(196, 196, 196, 0.699);
+        
+
+            .modal-content{
+                position: relative;
+                height: 20%;
+                width: 50%;
+                background-color: #ffffff;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                border-radius: 20px;
+                justify-content:flex-start;
+                gap: 10%;
+
+                .closeModal{
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    cursor: pointer;
+                }
+
+                .midModal{
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    gap: 40px;
+
+                    .deleteOptions{
+                        display: flex;
+                        flex-direction: row;
+                        width: 25%;
+                        justify-content: space-between;
+
+                        button{
+                            border-radius: 10px;
+                            background-color: #7fc6a4;
+                            padding: 10px 20px;
+                            color: #ffffff;
+                            font-weight: 600;
+                            font-size: 18px;
+                            border: none;
+                            cursor: pointer;
+
+                        }
+                        .yes{
+                            background-color: #aa5042;
+                        }
+                        
+                    }
+                }
+            }    
+        }
+
 
         .projectsContent{
-            height: 400px;
-            width: 100%;
+            height: 800px;
+            width: 97%;
             padding: 20px;
             border-radius: 5px;
             background-color: white;

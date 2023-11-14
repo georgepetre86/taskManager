@@ -45,3 +45,14 @@ export const deleteProject = async (req, res, next) => {
         next(err)
     }
 }
+
+export const getLastElement = async (req, res, next) => {
+    
+    try {
+       
+        const elem = await Project.find().sort({$natural:-1}).limit(1)
+        res.status(200).json(elem[0].number)
+    } catch (err) {
+        next(err)
+    }
+}

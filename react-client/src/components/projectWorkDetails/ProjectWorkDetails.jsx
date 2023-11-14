@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./projectWorkDetails.scss"
 import { Add } from '@mui/icons-material'
 
-export default function ProjectWorkDetails() {
+export default function ProjectWorkDetails(props) {
+    console.log(props.dataToShow)
+   
+
+    
   return (
     <div className="cardItem">
                     <div className="topbarCardItem">
@@ -20,23 +24,22 @@ export default function ProjectWorkDetails() {
                         </div>
 
                         <div className="tableContents">
-                            <ul>
-                                <li style={{width: "67%"}}>Comanda pal efectuata</li>
-                                <li style={{width: "10%"}}>no</li>
-                                <li style={{width: "10%"}}>31/10/2022</li>
-                                <li style={{width: "10%"}}>bmihai</li>
+
+                            {Object.keys(props.dataToShow).length !== 0 ? props.dataToShow.workDetails.map((item, index)=>(
+                                <ul key={index}>
+                                <li style={{width: "67%"}}>{item.note}</li>
+                                <li style={{width: "10%"}}>{item.file.length}</li>
+                                <li style={{width: "10%"}}>{item.date}</li>
+                                <li style={{width: "10%"}}>{item.user}</li>
                             </ul>
-                            <ul>
-                                <li style={{width: "67%"}}>Task gaurire efectuat</li>
-                                <li style={{width: "10%"}}>no</li>
-                                <li style={{width: "10%"}}>31/10/2022</li>
-                                <li style={{width: "10%"}}>pgeorge</li>
-                            </ul>
+                            )) : ""}
+                            
+                            
                             
 
                         </div>
                     </div>
                     
-                </div>
+    </div>
   )
 }
