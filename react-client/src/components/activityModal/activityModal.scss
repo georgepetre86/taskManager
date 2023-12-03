@@ -1,0 +1,532 @@
+.activityModal{
+        
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(196, 196, 196, 0.699);
+
+
+.modal-content{
+    position: relative;
+    height: 60%;
+    width: 50%;
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    justify-content:flex-start;
+    gap: 10%;
+
+
+    .closeModal{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+
+    .topModal{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        gap: 5%;
+        margin-top: 30px;
+
+        .modalSummary{
+            width: 50%;
+            height: 90%;
+            padding: 5px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+            gap: 5%;
+
+
+            .summaryLine{
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+            }
+
+            .editSummaryModal{
+                background-color: #7fc6a480;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-radius: 10px;
+                width: 100%;
+                border: 1px solid #7fc6a480;
+
+                input{
+                    flex: 3;
+                    border: none;
+                    padding: 10px;
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                    font-size: 14px;
+                    &:focus {
+                    border: none;
+                    outline: none;
+                    }
+                }
+
+                button{
+                    flex: 0.5;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: rgb(95, 95, 95);
+                    cursor: pointer;
+                    border: none;
+                    background: none;
+                   
+
+                    &:hover{
+                        color: #7fc6a4;
+                    }
+                }
+               
+            }
+
+            span{
+            background-color: rgba(255, 255, 255, 0.699);
+            border: 1px solid #7fc6a4;
+            border-radius: 10px;
+            width: 100%;
+            padding: 10px;
+            vertical-align: top;
+            font-size: 14px;
+            }
+
+            .currentData{
+                display: flex;
+                flex-direction: row;
+                width: fit-content;
+                
+                border: 1px solid #fff;
+                border-radius: 10px;
+                
+
+                .asignee{
+                    background-color: #7fc6a4;
+                    padding: 10px 30px;
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                }
+
+                .priority{
+                    
+                    padding: 10px 30px;
+                    
+                }
+
+                .stage{
+                    padding: 10px 30px;
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                }
+
+                .green{
+                    background-color: #7fc6a4;
+                    
+                }
+            
+                .yellow{
+                    background-color: #fed766;
+                }
+            
+                .red{
+                    background-color: #aa5042;
+                   
+                }
+            
+                .gray{
+                    background-color: #bbbbbf;
+                }
+        
+            }
+        }
+
+        .topRightModal{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 50%;
+            
+            
+
+            .modalAsignee{
+                width: 25%;
+                display: flex;
+                justify-content: center;
+                background-color: #7fc6a4;
+                padding: 5px;
+                border-radius: 5px;
+                height: fit-content;
+                  
+            }
+
+            .modalPriority{
+                width: 30%;
+                display: flex;
+                justify-content: center;
+                padding: 5px;
+                border-radius: 5px;
+                height: fit-content;
+
+                
+            }
+
+            .modalStage{
+                width: 35%;
+                display: flex;
+                justify-content: center;
+                padding: 5px;
+                border-radius: 5px;
+                height: fit-content;
+
+            }
+        }
+
+        
+
+        
+    }
+
+    .midModal{
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+        gap: 2%;
+        width: 98%;
+        height: 75%;
+
+        .commentSectionModal{
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #7fc6a4;
+            border-radius: 10px;
+            position: relative;
+
+            .topCommentSection{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                span {
+                    padding: 10px;
+                }
+
+                button{
+                    background: none;
+                    cursor: pointer;
+                    border: none;
+                    color: #7fc6a4;
+                    font-size: 14px;
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            .addNewComment{
+                position: absolute;
+                right: 0;
+                top: 40px;
+                z-index: 999;
+                background-color: #fff;
+                width: 60%;
+                height: fit-content;
+                border: 1px solid #7fc6a4;
+                border-radius: 10px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10%;
+
+                .topLine{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    span{
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                }
+
+                input{
+                    border: 1px solid #fed766;
+                    border-radius: 10px;
+                    
+                    padding: 10px;
+
+                    &:focus{
+                        outline: none;
+                    }
+                }
+
+                button{
+                    background: #fed766;
+                    cursor: pointer;
+                    border: none;
+                    color: #000;
+                    font-size: 14px;
+                    border-radius: 10px;
+                    
+                    padding: 5px;
+                }
+
+                
+            }
+
+            .allCommentsSection{
+                overflow: auto;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                width: 100%;
+                ::-webkit-scrollbar{
+                    display: none;
+                }
+                table {
+                    width: 100%;
+                    position: relative;
+                    border-collapse: collapse;
+                    
+          
+                    thead {
+                      background: #7fc6a4;
+                      
+                    }
+
+                    tbody{
+                        overflow: scroll;
+                        height: 100%;
+                        ::-webkit-scrollbar{
+                            display: none;
+                        }
+                        
+                        tr {
+                            
+                          margin: 0;
+                          padding: 0;
+                          th {
+                            padding: 5px 20px;
+                            color: #363636;
+                            font-size: 12px;
+                            
+                            
+                          }
+              
+                          td {
+                            background-color: #f8f8f8;
+                            text-align: center;
+                            font-size: 12px;
+                            
+                            &:nth-child(2){
+                                text-align: left;
+                            }
+                          }
+                    }
+                    }
+                  }
+            }
+            
+            ul {
+                list-style-type: none;
+            }
+
+            button{
+                width: 20%;
+            }
+        }
+
+        .attachSectionModal{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #fed766;
+            border-radius: 10px;
+
+            .topAttachSection{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                position: relative;
+
+                span {
+                    padding: 10px;
+                }
+
+                button{
+                    background: none;
+                    cursor: pointer;
+                    border: none;
+                    color: #fed766;
+                    font-size: 14px;
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                
+            }
+
+            .addNewParent{
+                position: absolute;
+                right: 0;
+                top: 40px;
+                z-index: 999;
+                background-color: #fff;
+                width: 60%;
+                height: 40%;
+                border: 1px solid #7fc6a4;
+                border-radius: 10px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10%;
+
+                .topLine{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    span{
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                }
+
+                input{
+                    border: 1px solid #fed766;
+                    border-radius: 10px;
+                    height: 40%;
+
+                    &:focus{
+                        outline: none;
+                    }
+                }
+
+                button{
+                    background: #fed766;
+                    cursor: pointer;
+                    border: none;
+                    color: #000;
+                    font-size: 14px;
+                    border-radius: 10px;
+                    
+                    padding: 5px;
+                }
+
+                table {
+                    width: 100%;
+                    position: relative;
+                    border-collapse: collapse;
+          
+                    thead {
+                      background: #7fc6a4;
+                    }
+                    tr {
+                      margin: 0;
+                      padding: 0;
+                      th {
+                        padding: 5px 20px;
+                        color: #363636;
+                        font-size: 12px;
+                        
+                        
+                      }
+          
+                      td {
+                        background-color: #f8f8f8;
+                        text-align: center;
+                        font-size: 12px;
+                        
+                        &:nth-child(2){
+                            text-align: left;
+                        }
+                      }
+                    }
+                  }
+
+                
+            }
+
+            .allAttachmentSection{
+                table {
+                    width: 100%;
+                    position: relative;
+                    border-collapse: collapse;
+          
+                    thead {
+                      background: #7fc6a4;
+                    }
+                    tr {
+                      margin: 0;
+                      padding: 0;
+                      th {
+                        padding: 5px 20px;
+                        color: #363636;
+                        font-size: 12px;
+                        
+                        
+                      }
+          
+                      td {
+                        background-color: #f8f8f8;
+                        text-align: center;
+                        font-size: 12px;
+                        
+                        &:nth-child(2){
+                            text-align: left;
+                        }
+                      }
+                    }
+                  }
+            }
+        }
+    }
+
+    .botModal{
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+
+        .saveBtn{
+            background-color: #7fc6a4;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+
+    .green{
+        background-color: #7fc6a4;
+    }
+
+    .yellow{
+        background-color: #fed766;
+    }
+
+    .red{
+        background-color: #aa5042;
+    }
+
+    .gray{
+        background-color: #bbbbbf;
+    }
+}
+}

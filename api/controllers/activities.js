@@ -67,3 +67,16 @@ export const deleteComment = async (req, res, next) => {
         next(err)
     }
 }
+
+//
+export const addParentToActivity = async (req, res, next) => {
+    try {
+        if(!req.params.parent.includes("[")) {
+            await Activities.updateOne({_id: req.params.id}, {$addToSet: {parent: req.params.parent}}, {upsert: true})
+            res.status(200).json("Parent added")
+        }
+        
+    } catch (err) {
+        next(err)
+    }
+}

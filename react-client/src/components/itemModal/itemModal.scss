@@ -1,0 +1,51 @@
+.itemSection{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap:20px;
+
+    .itemName{
+        width: 100%;
+        display: flex;
+        gap: 15%;
+    }
+
+    .itemTable{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-size: 13px;
+        gap: 15px;
+
+            .materialsSection{
+                border: 1px solid #fed766;
+
+                .materialsHeader{
+                    display: flex;
+                    width: 100%;
+                }
+                .materialsRow{
+                    display: flex;
+                    width: 100%;
+                    
+                }
+            }
+            
+            .accesoriesSection{
+                border: 1px solid #118ab2;
+                .accesoriesHeader{
+                    display: flex;
+                    width: 100%;
+                }
+                .accesoriesRow{
+                    display: flex;
+                    width: 100%;
+                    
+                }
+            }
+            
+        }
+
+
+
+}

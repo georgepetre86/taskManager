@@ -80,9 +80,9 @@ export default function GenerateMaterials({room}) {
     }
 
     const calculateMPCarcasaBedroom = () => {
-      const lateraleDivizori = (parseInt(inputValuesBedroom.inaltimeBaza) / 100 * parseInt(inputValuesBedroom.adancimeBaza) / 100 ) * (parseInt(inputValuesBedroom.nrUsiBaza) + 1 )
+      const lateraleDivizori = (parseInt(inputValuesBedroom.inaltimeBaza) / 100 * parseInt(inputValuesBedroom.adancimeBaza) / 100 ) * (parseInt(inputValuesBedroom.nrUsiBaza) + 2 )
       const topFund = inputValuesBedroom.inaltimeBaza > 200 ? (inputValuesBedroom.latimeBaza / 100 * inputValuesBedroom.adancimeBaza / 100 * 4) : (inputValuesBedroom.latimeBaza / 100 * inputValuesBedroom.adancimeBaza / 100 * 2)
-      const polite = (inputValuesBedroom.latimeBaza / inputValuesBedroom.nrUsiBaza) * inputValuesBedroom.adancimeBaza * inputValuesBedroom.nrPoliteBaza / 10000
+      const polite = inputValuesBedroom.latimeBaza * inputValuesBedroom.adancimeBaza * inputValuesBedroom.nrPoliteBaza / 10000
       const sertare = (inputValuesBedroom.latimeBaza / inputValuesBedroom.nrUsiBaza * inputValuesBedroom.adancimeBaza * 2.2) * inputValuesBedroom.nrSertareBaza /10000
 
       return Math.round(((lateraleDivizori+sertare+topFund+polite))*100)/100

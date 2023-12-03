@@ -1,0 +1,170 @@
+Date : 2023-12-01 21:40:33
+Directory : f:\DEV\Projects\ProjectHandler
+Total : 97 files,  38843 codes, 184 comments, 1535 blanks, all 40562 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          3 |     29,125 |          0 |          3 |     29,128 |
+| JavaScript JSX     |         27 |      4,605 |        125 |        565 |      5,295 |
+| SCSS               |         28 |      3,335 |          0 |        737 |      4,072 |
+| JavaScript         |         36 |      1,707 |         59 |        195 |      1,961 |
+| Markdown           |          1 |         38 |          0 |         33 |         71 |
+| HTML               |          1 |         25 |          0 |          2 |         27 |
+| JSON with Comments |          1 |          8 |          0 |          0 |          8 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                   | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                      |         97 |     38,843 |        184 |      1,535 |     40,562 |
+| . (Files)                                                                                              |          1 |          8 |          0 |          0 |          8 |
+| api                                                                                                    |         32 |        962 |         59 |        142 |      1,163 |
+| api (Files)                                                                                            |          2 |         77 |          1 |         11 |         89 |
+| api\controllers                                                                                        |          9 |        462 |         13 |         68 |        543 |
+| api\models                                                                                             |          9 |        290 |          0 |         23 |        313 |
+| api\routes                                                                                             |         10 |         96 |         45 |         35 |        176 |
+| api\utils                                                                                              |          2 |         37 |          0 |          5 |         42 |
+| react-client                                                                                           |         64 |     37,873 |        125 |      1,393 |     39,391 |
+| react-client (Files)                                                                                   |          3 |     29,140 |          0 |         35 |     29,175 |
+| react-client\public                                                                                    |          1 |         25 |          0 |          2 |         27 |
+| react-client\src                                                                                       |         60 |      8,708 |        125 |      1,356 |     10,189 |
+| react-client\src (Files)                                                                               |          4 |        704 |          0 |         54 |        758 |
+| react-client\src\components                                                                            |         36 |      4,996 |         90 |        916 |      6,002 |
+| react-client\src\components\activities                                                                 |          2 |      1,177 |         50 |        219 |      1,446 |
+| react-client\src\components\activityModal                                                              |          2 |        880 |         16 |        163 |      1,059 |
+| react-client\src\components\cards                                                                      |          2 |        130 |          0 |         18 |        148 |
+| react-client\src\components\chart                                                                      |          2 |         73 |          0 |         10 |         83 |
+| react-client\src\components\dashboardTopbar                                                            |          2 |        101 |          0 |         29 |        130 |
+| react-client\src\components\generateMaterials                                                          |          2 |        392 |         11 |         66 |        469 |
+| react-client\src\components\itemModal                                                                  |          2 |        103 |          0 |         20 |        123 |
+| react-client\src\components\openProjects                                                               |          2 |        120 |          0 |         19 |        139 |
+| react-client\src\components\openTasks                                                                  |          2 |        124 |          1 |         28 |        153 |
+| react-client\src\components\priceOfferTable                                                            |          2 |         92 |          2 |         13 |        107 |
+| react-client\src\components\projectDetails                                                             |          2 |        177 |          2 |         24 |        203 |
+| react-client\src\components\projectProgressBar                                                         |          2 |        101 |          0 |         23 |        124 |
+| react-client\src\components\projectRelationships                                                       |          2 |        186 |          2 |         42 |        230 |
+| react-client\src\components\projectTasks                                                               |          2 |        274 |          0 |         43 |        317 |
+| react-client\src\components\projectWorkDetails                                                         |          2 |        176 |          0 |         30 |        206 |
+| react-client\src\components\projectsTopbar                                                             |          2 |        335 |          3 |         56 |        394 |
+| react-client\src\components\sidebar                                                                    |          2 |        317 |          0 |         54 |        371 |
+| react-client\src\components\tasksPage                                                                  |          2 |        238 |          3 |         59 |        300 |
+| react-client\src\context                                                                               |          1 |         53 |          0 |          6 |         59 |
+| react-client\src\hooks                                                                                 |          1 |         32 |          0 |          6 |         38 |
+| react-client\src\pages                                                                                 |         18 |      2,923 |         35 |        374 |      3,332 |
+| react-client\src\pages\dashboardActivities                                                             |          2 |         14 |          0 |          3 |         17 |
+| react-client\src\pages\dashboardProjects                                                               |          2 |         21 |          0 |          3 |         24 |
+| react-client\src\pages\dashboardTasks                                                                  |          2 |         22 |          0 |          4 |         26 |
+| react-client\src\pages\login                                                                           |          2 |         66 |          0 |         11 |         77 |
+| react-client\src\pages\priceGenerator                                                                  |          2 |      1,099 |         29 |        121 |      1,249 |
+| react-client\src\pages\priceOffer                                                                      |          2 |      1,184 |          6 |        125 |      1,315 |
+| react-client\src\pages\projectPage                                                                     |          2 |        256 |          0 |         59 |        315 |
+| react-client\src\pages\projects                                                                        |          2 |        252 |          0 |         45 |        297 |
+| react-client\src\pages\tasks                                                                           |          2 |          9 |          0 |          3 |         12 |
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                               | language           | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| f:\DEV\Projects\ProjectHandler\ProjectHandler.code-workspace                                           | JSON with Comments |          8 |          0 |          0 |          8 |
+| f:\DEV\Projects\ProjectHandler\api\controllers\activities.js                                           | JavaScript         |         68 |          8 |          7 |         83 |
+| f:\DEV\Projects\ProjectHandler\api\controllers\auth.js                                                 | JavaScript         |         37 |          0 |          7 |         44 |
+| f:\DEV\Projects\ProjectHandler\api\controllers\priceOffer.js                                           | JavaScript         |         50 |          5 |          5 |         60 |
+| f:\DEV\Projects\ProjectHandler\api\controllers\priceOfferItem.js                                       | JavaScript         |         62 |          0 |         12 |         74 |
+| f:\DEV\Projects\ProjectHandler\api\controllers\project.js                                              | JavaScript         |         82 |          0 |         12 |         94 |
+| f:\DEV\Projects\ProjectHandler\api\controllers\task.js                                                 | JavaScript         |         42 |          0 |          6 |         48 |
+| f:\DEV\Projects\ProjectHandler\api\controllers\taskNotes.js                                            | JavaScript         |         42 |          0 |          6 |         48 |
+| f:\DEV\Projects\ProjectHandler\api\controllers\user.js                                                 | JavaScript         |         37 |          0 |          6 |         43 |
+| f:\DEV\Projects\ProjectHandler\api\controllers\workDetails.js                                          | JavaScript         |         42 |          0 |          7 |         49 |
+| f:\DEV\Projects\ProjectHandler\api\index.js                                                            | JavaScript         |         54 |          1 |         10 |         65 |
+| f:\DEV\Projects\ProjectHandler\api\models\Activities.js                                                | JavaScript         |         36 |          0 |          3 |         39 |
+| f:\DEV\Projects\ProjectHandler\api\models\PriceGenerate.js                                             | JavaScript         |          0 |          0 |          1 |          1 |
+| f:\DEV\Projects\ProjectHandler\api\models\PriceOffer.js                                                | JavaScript         |         28 |          0 |          2 |         30 |
+| f:\DEV\Projects\ProjectHandler\api\models\PriceOfferItem.js                                            | JavaScript         |         35 |          0 |          3 |         38 |
+| f:\DEV\Projects\ProjectHandler\api\models\Project.js                                                   | JavaScript         |         94 |          0 |          4 |         98 |
+| f:\DEV\Projects\ProjectHandler\api\models\Task.js                                                      | JavaScript         |         29 |          0 |          3 |         32 |
+| f:\DEV\Projects\ProjectHandler\api\models\TaskNotes.js                                                 | JavaScript         |         16 |          0 |          2 |         18 |
+| f:\DEV\Projects\ProjectHandler\api\models\User.js                                                      | JavaScript         |         33 |          0 |          2 |         35 |
+| f:\DEV\Projects\ProjectHandler\api\models\WorkDetails.js                                               | JavaScript         |         19 |          0 |          3 |         22 |
+| f:\DEV\Projects\ProjectHandler\api\package.json                                                        | JSON               |         23 |          0 |          1 |         24 |
+| f:\DEV\Projects\ProjectHandler\api\routes\activities.js                                                | JavaScript         |         13 |          0 |          4 |         17 |
+| f:\DEV\Projects\ProjectHandler\api\routes\auth.js                                                      | JavaScript         |          6 |          0 |          5 |         11 |
+| f:\DEV\Projects\ProjectHandler\api\routes\priceGenerated.js                                            | JavaScript         |          0 |          0 |          1 |          1 |
+| f:\DEV\Projects\ProjectHandler\api\routes\priceOffer.js                                                | JavaScript         |         11 |          0 |          2 |         13 |
+| f:\DEV\Projects\ProjectHandler\api\routes\priceOfferItems.js                                           | JavaScript         |         12 |          7 |          6 |         25 |
+| f:\DEV\Projects\ProjectHandler\api\routes\projects.js                                                  | JavaScript         |         15 |         10 |          2 |         27 |
+| f:\DEV\Projects\ProjectHandler\api\routes\taskNotes.js                                                 | JavaScript         |         10 |          5 |          3 |         18 |
+| f:\DEV\Projects\ProjectHandler\api\routes\tasks.js                                                     | JavaScript         |         10 |          5 |          3 |         18 |
+| f:\DEV\Projects\ProjectHandler\api\routes\users.js                                                     | JavaScript         |          9 |         13 |          5 |         27 |
+| f:\DEV\Projects\ProjectHandler\api\routes\workDetails.js                                               | JavaScript         |         10 |          5 |          4 |         19 |
+| f:\DEV\Projects\ProjectHandler\api\utils\error.js                                                      | JavaScript         |          6 |          0 |          1 |          7 |
+| f:\DEV\Projects\ProjectHandler\api\utils\verifyToken.js                                                | JavaScript         |         31 |          0 |          4 |         35 |
+| f:\DEV\Projects\ProjectHandler\react-client\README.md                                                  | Markdown           |         38 |          0 |         33 |         71 |
+| f:\DEV\Projects\ProjectHandler\react-client\package-lock.json                                          | JSON               |     29,047 |          0 |          1 |     29,048 |
+| f:\DEV\Projects\ProjectHandler\react-client\package.json                                               | JSON               |         55 |          0 |          1 |         56 |
+| f:\DEV\Projects\ProjectHandler\react-client\public\index.html                                          | HTML               |         25 |          0 |          2 |         27 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\App.js                                                 | JavaScript         |         61 |          0 |         11 |         72 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\app.scss                                               | SCSS               |         21 |          0 |         12 |         33 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\activities\Activities.jsx                   | JavaScript JSX     |        518 |         50 |         61 |        629 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\activities\activities.scss                  | SCSS               |        659 |          0 |        158 |        817 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\activityModal\activityModal.jsx             | JavaScript JSX     |        452 |         16 |         58 |        526 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\activityModal\activityModal.scss            | SCSS               |        428 |          0 |        105 |        533 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\cards\Cards.jsx                             | JavaScript JSX     |         59 |          0 |          3 |         62 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\cards\cards.scss                            | SCSS               |         71 |          0 |         15 |         86 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\chart\Chart.jsx                             | JavaScript JSX     |         40 |          0 |          4 |         44 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\chart\chart.scss                            | SCSS               |         33 |          0 |          6 |         39 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\dashboardTopbar\DashboardTopbar.jsx         | JavaScript JSX     |         44 |          0 |         14 |         58 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\dashboardTopbar\dashboardTopbar.scss        | SCSS               |         57 |          0 |         15 |         72 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\generateMaterials\GenerateMaterials.jsx     | JavaScript JSX     |        326 |         11 |         50 |        387 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\generateMaterials\generateMaterials.scss    | SCSS               |         66 |          0 |         16 |         82 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\itemModal\ItemModal.jsx                     | JavaScript JSX     |         63 |          0 |          8 |         71 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\itemModal\itemModal.scss                    | SCSS               |         40 |          0 |         12 |         52 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\openProjects\OpenProjects.jsx               | JavaScript JSX     |         67 |          0 |          7 |         74 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\openProjects\openProjects.scss              | SCSS               |         53 |          0 |         12 |         65 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\openTasks\OpenTasks.jsx                     | JavaScript JSX     |         67 |          1 |         11 |         79 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\openTasks\openTasks.scss                    | SCSS               |         57 |          0 |         17 |         74 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\priceOfferTable\PriceOfferTable.jsx         | JavaScript JSX     |         60 |          2 |          9 |         71 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\priceOfferTable\priceOfferTable.scss        | SCSS               |         32 |          0 |          4 |         36 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\projectDetails\ProjectDetails.jsx           | JavaScript JSX     |        105 |          2 |         16 |        123 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\projectDetails\projectDetails.scss          | SCSS               |         72 |          0 |          8 |         80 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\projectProgressBar\ProjectProgressBar.jsx   | JavaScript JSX     |         51 |          0 |          8 |         59 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\projectProgressBar\projectProgressBar.scss  | SCSS               |         50 |          0 |         15 |         65 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\projectRelationships\ProjectActivities.jsx  | JavaScript JSX     |        106 |          2 |         27 |        135 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\projectRelationships\projectActivities.scss | SCSS               |         80 |          0 |         15 |         95 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\projectTasks\ProjectFiles.jsx               | JavaScript JSX     |        158 |          0 |         21 |        179 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\projectTasks\projectFiles.scss              | SCSS               |        116 |          0 |         22 |        138 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\projectWorkDetails\ProjectWorkDetails.jsx   | JavaScript JSX     |        100 |          0 |         15 |        115 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\projectWorkDetails\projectWorkDetails.scss  | SCSS               |         76 |          0 |         15 |         91 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\projectsTopbar\ProjectsTopbar.jsx           | JavaScript JSX     |        229 |          3 |         38 |        270 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\projectsTopbar\projectsTopbar.scss          | SCSS               |        106 |          0 |         18 |        124 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\sidebar\Sidebar.jsx                         | JavaScript JSX     |        160 |          0 |         16 |        176 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\sidebar\sidebar.scss                        | SCSS               |        157 |          0 |         38 |        195 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\tasksPage\TasksPage.jsx                     | JavaScript JSX     |        122 |          3 |         18 |        143 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\components\tasksPage\tasksPage.scss                    | SCSS               |        116 |          0 |         41 |        157 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\context\AuthContext.js                                 | JavaScript         |         53 |          0 |          6 |         59 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\dummyData.js                                           | JavaScript         |        610 |          0 |         26 |        636 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\hooks\useFetch.js                                      | JavaScript         |         32 |          0 |          6 |         38 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\index.js                                               | JavaScript         |         12 |          0 |          5 |         17 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\dashboardActivities\DashboardActivities.jsx      | JavaScript JSX     |         14 |          0 |          2 |         16 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\dashboardActivities\dashboardActivities.scss     | SCSS               |          0 |          0 |          1 |          1 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\dashboardProjects\DashboardProjects.jsx          | JavaScript JSX     |         18 |          0 |          2 |         20 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\dashboardProjects\dashboardProjects.scss         | SCSS               |          3 |          0 |          1 |          4 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\dashboardTasks\DashboardTasks.jsx                | JavaScript JSX     |         19 |          0 |          3 |         22 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\dashboardTasks\dashboardTasks.scss               | SCSS               |          3 |          0 |          1 |          4 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\login\Login.jsx                                  | JavaScript JSX     |         38 |          0 |          7 |         45 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\login\login.scss                                 | SCSS               |         28 |          0 |          4 |         32 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\priceGenerator\PriceGenerator.jsx                | JavaScript JSX     |        868 |         29 |         60 |        957 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\priceGenerator\priceGenerator.scss               | SCSS               |        231 |          0 |         61 |        292 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\priceOffer\PriceOffer.jsx                        | JavaScript JSX     |        674 |          6 |         60 |        740 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\priceOffer\priceOffer.scss                       | SCSS               |        510 |          0 |         65 |        575 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\projectPage\ProjectPage.jsx                      | JavaScript JSX     |         99 |          0 |         20 |        119 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\projectPage\projectPage.scss                     | SCSS               |        157 |          0 |         39 |        196 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\projects\Projects.jsx                            | JavaScript JSX     |        139 |          0 |         25 |        164 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\projects\projects.scss                           | SCSS               |        113 |          0 |         20 |        133 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\tasks\Tasks.jsx                                  | JavaScript JSX     |          9 |          0 |          2 |         11 |
+| f:\DEV\Projects\ProjectHandler\react-client\src\pages\tasks\tasks.scss                                 | SCSS               |          0 |          0 |          1 |          1 |
+| Total                                                                                                  |                    |     38,843 |        184 |      1,535 |     40,562 |
++--------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

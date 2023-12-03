@@ -1,11 +1,10 @@
-.tableTasks{
-    padding: 15px 0px;
+.tableRelationships{
 
-    .filterTasks{
+
+    .filterRelationship{
         display: flex;
-        align-items: center;
 
-        .filteredTasksItem{
+        .filteredRelasionshipItem{
             background-color: #cecece;
             padding: 5px 15px;
             cursor: pointer;
@@ -14,8 +13,9 @@
         .active {
             background-color: #118ab2;
         }
-    }
 
+        
+    }
     .tableHead{
         margin-top: 10px;
         display: flex;
@@ -39,13 +39,13 @@
     }
 
     .tableContents{
-        height: 250px;
+        height: 200px;
         overflow-y: scroll;
-        cursor: pointer;
         ul{
             list-style-type: none;
             margin: 0;
             padding: 0;
+            cursor: pointer;
 
             li{
                 display: inline-block;
@@ -58,3 +58,38 @@
     }   
 }
 
+.activityModal{
+        
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(196, 196, 196, 0.699);
+
+
+.modal-content{
+    position: relative;
+    height: 60%;
+    width: 70%;
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    justify-content:flex-start;
+    gap: 10%;
+
+
+    .closeModal{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+}
+}

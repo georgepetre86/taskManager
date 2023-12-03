@@ -17,8 +17,8 @@ export default function Projects({tab}) {
   const columns = [
     { field: 'id', headerName: 'ID', width: 30 },
     { field: 'number', headerName: 'Project', width: 120 },
-    { field: 'client', headerName: 'Client', width: 120 },
-    { field: 'summary', headerName: 'Summary', width: 350 },
+    { field: 'client', headerName: 'Client', width: 140 },
+    { field: 'summary', headerName: 'Summary', width: 330 },
     { field: 'priority', headerName: 'Priority', width: 80 },
     {
       field: 'startDate',

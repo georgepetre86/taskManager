@@ -1,14 +1,14 @@
 import "./projectPage.scss"
 import { Home, Close, Person, CalendarMonth, Place} from '@mui/icons-material'
 import { Link, useLocation } from 'react-router-dom'
-import ProjectTasks from '../../components/projectTasks/ProjectTasks'
+import ProjectFiles from '../../components/projectTasks/ProjectFiles'
 import ProjectDetails from '../../components/projectDetails/ProjectDetails'
 import ProjectWorkDetails from '../../components/projectWorkDetails/ProjectWorkDetails'
-import ProjectRelationships from '../../components/projectRelationships/ProjectRelationships'
 import ProjectProgressBar from '../../components/projectProgressBar/ProjectProgressBar'
 import { useEffect, useState } from "react"
 import { tasks } from "../../dummyData"
 import useFetch from "../../hooks/useFetch"
+import ProjectActivities from "../../components/projectRelationships/ProjectActivities"
 
 
 export default function ProjectPage() {
@@ -101,13 +101,13 @@ export default function ProjectPage() {
         </div>
         <div className="projectCards">
             <div className="projectCardsLeft">
-                <ProjectWorkDetails dataToShow={{...dataToShow}}/>
-                <ProjectRelationships />
+                <ProjectWorkDetails dataToShow={{...dataToShow}} projectId={projectId} reFetch={reFetch}/>
+                <ProjectActivities dataToShow={{...dataToShow}}/>
 
             </div>
             <div className="projectCardsRight">
-            <ProjectTasks func={handleEditTask}/>
-             <ProjectDetails />   
+            <ProjectFiles dataToShow={{...dataToShow}} projectId={projectId} reFetch={reFetch}/>
+             <ProjectDetails dataToShow={{...dataToShow}} projectId={projectId} reFetch={reFetch}/>   
             </div>
 
         </div>

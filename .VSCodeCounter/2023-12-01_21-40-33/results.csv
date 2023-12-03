@@ -1,0 +1,99 @@
+"filename", "language", "JSON with Comments", "JavaScript", "Markdown", "HTML", "SCSS", "JavaScript JSX", "JSON", "comment", "blank", "total"
+"f:\DEV\Projects\ProjectHandler\ProjectHandler.code-workspace", "JSON with Comments", 8, 0, 0, 0, 0, 0, 0, 0, 0, 8
+"f:\DEV\Projects\ProjectHandler\api\controllers\activities.js", "JavaScript", 0, 68, 0, 0, 0, 0, 0, 8, 7, 83
+"f:\DEV\Projects\ProjectHandler\api\controllers\auth.js", "JavaScript", 0, 37, 0, 0, 0, 0, 0, 0, 7, 44
+"f:\DEV\Projects\ProjectHandler\api\controllers\priceOffer.js", "JavaScript", 0, 50, 0, 0, 0, 0, 0, 5, 5, 60
+"f:\DEV\Projects\ProjectHandler\api\controllers\priceOfferItem.js", "JavaScript", 0, 62, 0, 0, 0, 0, 0, 0, 12, 74
+"f:\DEV\Projects\ProjectHandler\api\controllers\project.js", "JavaScript", 0, 82, 0, 0, 0, 0, 0, 0, 12, 94
+"f:\DEV\Projects\ProjectHandler\api\controllers\task.js", "JavaScript", 0, 42, 0, 0, 0, 0, 0, 0, 6, 48
+"f:\DEV\Projects\ProjectHandler\api\controllers\taskNotes.js", "JavaScript", 0, 42, 0, 0, 0, 0, 0, 0, 6, 48
+"f:\DEV\Projects\ProjectHandler\api\controllers\user.js", "JavaScript", 0, 37, 0, 0, 0, 0, 0, 0, 6, 43
+"f:\DEV\Projects\ProjectHandler\api\controllers\workDetails.js", "JavaScript", 0, 42, 0, 0, 0, 0, 0, 0, 7, 49
+"f:\DEV\Projects\ProjectHandler\api\index.js", "JavaScript", 0, 54, 0, 0, 0, 0, 0, 1, 10, 65
+"f:\DEV\Projects\ProjectHandler\api\models\Activities.js", "JavaScript", 0, 36, 0, 0, 0, 0, 0, 0, 3, 39
+"f:\DEV\Projects\ProjectHandler\api\models\PriceGenerate.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"f:\DEV\Projects\ProjectHandler\api\models\PriceOffer.js", "JavaScript", 0, 28, 0, 0, 0, 0, 0, 0, 2, 30
+"f:\DEV\Projects\ProjectHandler\api\models\PriceOfferItem.js", "JavaScript", 0, 35, 0, 0, 0, 0, 0, 0, 3, 38
+"f:\DEV\Projects\ProjectHandler\api\models\Project.js", "JavaScript", 0, 94, 0, 0, 0, 0, 0, 0, 4, 98
+"f:\DEV\Projects\ProjectHandler\api\models\Task.js", "JavaScript", 0, 29, 0, 0, 0, 0, 0, 0, 3, 32
+"f:\DEV\Projects\ProjectHandler\api\models\TaskNotes.js", "JavaScript", 0, 16, 0, 0, 0, 0, 0, 0, 2, 18
+"f:\DEV\Projects\ProjectHandler\api\models\User.js", "JavaScript", 0, 33, 0, 0, 0, 0, 0, 0, 2, 35
+"f:\DEV\Projects\ProjectHandler\api\models\WorkDetails.js", "JavaScript", 0, 19, 0, 0, 0, 0, 0, 0, 3, 22
+"f:\DEV\Projects\ProjectHandler\api\package.json", "JSON", 0, 0, 0, 0, 0, 0, 23, 0, 1, 24
+"f:\DEV\Projects\ProjectHandler\api\routes\activities.js", "JavaScript", 0, 13, 0, 0, 0, 0, 0, 0, 4, 17
+"f:\DEV\Projects\ProjectHandler\api\routes\auth.js", "JavaScript", 0, 6, 0, 0, 0, 0, 0, 0, 5, 11
+"f:\DEV\Projects\ProjectHandler\api\routes\priceGenerated.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"f:\DEV\Projects\ProjectHandler\api\routes\priceOffer.js", "JavaScript", 0, 11, 0, 0, 0, 0, 0, 0, 2, 13
+"f:\DEV\Projects\ProjectHandler\api\routes\priceOfferItems.js", "JavaScript", 0, 12, 0, 0, 0, 0, 0, 7, 6, 25
+"f:\DEV\Projects\ProjectHandler\api\routes\projects.js", "JavaScript", 0, 15, 0, 0, 0, 0, 0, 10, 2, 27
+"f:\DEV\Projects\ProjectHandler\api\routes\taskNotes.js", "JavaScript", 0, 10, 0, 0, 0, 0, 0, 5, 3, 18
+"f:\DEV\Projects\ProjectHandler\api\routes\tasks.js", "JavaScript", 0, 10, 0, 0, 0, 0, 0, 5, 3, 18
+"f:\DEV\Projects\ProjectHandler\api\routes\users.js", "JavaScript", 0, 9, 0, 0, 0, 0, 0, 13, 5, 27
+"f:\DEV\Projects\ProjectHandler\api\routes\workDetails.js", "JavaScript", 0, 10, 0, 0, 0, 0, 0, 5, 4, 19
+"f:\DEV\Projects\ProjectHandler\api\utils\error.js", "JavaScript", 0, 6, 0, 0, 0, 0, 0, 0, 1, 7
+"f:\DEV\Projects\ProjectHandler\api\utils\verifyToken.js", "JavaScript", 0, 31, 0, 0, 0, 0, 0, 0, 4, 35
+"f:\DEV\Projects\ProjectHandler\react-client\README.md", "Markdown", 0, 0, 38, 0, 0, 0, 0, 0, 33, 71
+"f:\DEV\Projects\ProjectHandler\react-client\package-lock.json", "JSON", 0, 0, 0, 0, 0, 0, 29047, 0, 1, 29048
+"f:\DEV\Projects\ProjectHandler\react-client\package.json", "JSON", 0, 0, 0, 0, 0, 0, 55, 0, 1, 56
+"f:\DEV\Projects\ProjectHandler\react-client\public\index.html", "HTML", 0, 0, 0, 25, 0, 0, 0, 0, 2, 27
+"f:\DEV\Projects\ProjectHandler\react-client\src\App.js", "JavaScript", 0, 61, 0, 0, 0, 0, 0, 0, 11, 72
+"f:\DEV\Projects\ProjectHandler\react-client\src\app.scss", "SCSS", 0, 0, 0, 0, 21, 0, 0, 0, 12, 33
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\activities\Activities.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 518, 0, 50, 61, 629
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\activities\activities.scss", "SCSS", 0, 0, 0, 0, 659, 0, 0, 0, 158, 817
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\activityModal\activityModal.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 452, 0, 16, 58, 526
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\activityModal\activityModal.scss", "SCSS", 0, 0, 0, 0, 428, 0, 0, 0, 105, 533
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\cards\Cards.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 59, 0, 0, 3, 62
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\cards\cards.scss", "SCSS", 0, 0, 0, 0, 71, 0, 0, 0, 15, 86
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\chart\Chart.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 40, 0, 0, 4, 44
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\chart\chart.scss", "SCSS", 0, 0, 0, 0, 33, 0, 0, 0, 6, 39
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\dashboardTopbar\DashboardTopbar.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 44, 0, 0, 14, 58
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\dashboardTopbar\dashboardTopbar.scss", "SCSS", 0, 0, 0, 0, 57, 0, 0, 0, 15, 72
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\generateMaterials\GenerateMaterials.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 326, 0, 11, 50, 387
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\generateMaterials\generateMaterials.scss", "SCSS", 0, 0, 0, 0, 66, 0, 0, 0, 16, 82
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\itemModal\ItemModal.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 63, 0, 0, 8, 71
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\itemModal\itemModal.scss", "SCSS", 0, 0, 0, 0, 40, 0, 0, 0, 12, 52
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\openProjects\OpenProjects.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 67, 0, 0, 7, 74
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\openProjects\openProjects.scss", "SCSS", 0, 0, 0, 0, 53, 0, 0, 0, 12, 65
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\openTasks\OpenTasks.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 67, 0, 1, 11, 79
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\openTasks\openTasks.scss", "SCSS", 0, 0, 0, 0, 57, 0, 0, 0, 17, 74
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\priceOfferTable\PriceOfferTable.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 60, 0, 2, 9, 71
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\priceOfferTable\priceOfferTable.scss", "SCSS", 0, 0, 0, 0, 32, 0, 0, 0, 4, 36
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\projectDetails\ProjectDetails.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 105, 0, 2, 16, 123
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\projectDetails\projectDetails.scss", "SCSS", 0, 0, 0, 0, 72, 0, 0, 0, 8, 80
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\projectProgressBar\ProjectProgressBar.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 51, 0, 0, 8, 59
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\projectProgressBar\projectProgressBar.scss", "SCSS", 0, 0, 0, 0, 50, 0, 0, 0, 15, 65
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\projectRelationships\ProjectActivities.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 106, 0, 2, 27, 135
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\projectRelationships\projectActivities.scss", "SCSS", 0, 0, 0, 0, 80, 0, 0, 0, 15, 95
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\projectTasks\ProjectFiles.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 158, 0, 0, 21, 179
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\projectTasks\projectFiles.scss", "SCSS", 0, 0, 0, 0, 116, 0, 0, 0, 22, 138
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\projectWorkDetails\ProjectWorkDetails.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 100, 0, 0, 15, 115
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\projectWorkDetails\projectWorkDetails.scss", "SCSS", 0, 0, 0, 0, 76, 0, 0, 0, 15, 91
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\projectsTopbar\ProjectsTopbar.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 229, 0, 3, 38, 270
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\projectsTopbar\projectsTopbar.scss", "SCSS", 0, 0, 0, 0, 106, 0, 0, 0, 18, 124
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\sidebar\Sidebar.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 160, 0, 0, 16, 176
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\sidebar\sidebar.scss", "SCSS", 0, 0, 0, 0, 157, 0, 0, 0, 38, 195
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\tasksPage\TasksPage.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 122, 0, 3, 18, 143
+"f:\DEV\Projects\ProjectHandler\react-client\src\components\tasksPage\tasksPage.scss", "SCSS", 0, 0, 0, 0, 116, 0, 0, 0, 41, 157
+"f:\DEV\Projects\ProjectHandler\react-client\src\context\AuthContext.js", "JavaScript", 0, 53, 0, 0, 0, 0, 0, 0, 6, 59
+"f:\DEV\Projects\ProjectHandler\react-client\src\dummyData.js", "JavaScript", 0, 610, 0, 0, 0, 0, 0, 0, 26, 636
+"f:\DEV\Projects\ProjectHandler\react-client\src\hooks\useFetch.js", "JavaScript", 0, 32, 0, 0, 0, 0, 0, 0, 6, 38
+"f:\DEV\Projects\ProjectHandler\react-client\src\index.js", "JavaScript", 0, 12, 0, 0, 0, 0, 0, 0, 5, 17
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\dashboardActivities\DashboardActivities.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 14, 0, 0, 2, 16
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\dashboardActivities\dashboardActivities.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\dashboardProjects\DashboardProjects.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 18, 0, 0, 2, 20
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\dashboardProjects\dashboardProjects.scss", "SCSS", 0, 0, 0, 0, 3, 0, 0, 0, 1, 4
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\dashboardTasks\DashboardTasks.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 19, 0, 0, 3, 22
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\dashboardTasks\dashboardTasks.scss", "SCSS", 0, 0, 0, 0, 3, 0, 0, 0, 1, 4
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\login\Login.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 38, 0, 0, 7, 45
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\login\login.scss", "SCSS", 0, 0, 0, 0, 28, 0, 0, 0, 4, 32
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\priceGenerator\PriceGenerator.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 868, 0, 29, 60, 957
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\priceGenerator\priceGenerator.scss", "SCSS", 0, 0, 0, 0, 231, 0, 0, 0, 61, 292
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\priceOffer\PriceOffer.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 674, 0, 6, 60, 740
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\priceOffer\priceOffer.scss", "SCSS", 0, 0, 0, 0, 510, 0, 0, 0, 65, 575
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\projectPage\ProjectPage.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 99, 0, 0, 20, 119
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\projectPage\projectPage.scss", "SCSS", 0, 0, 0, 0, 157, 0, 0, 0, 39, 196
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\projects\Projects.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 139, 0, 0, 25, 164
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\projects\projects.scss", "SCSS", 0, 0, 0, 0, 113, 0, 0, 0, 20, 133
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\tasks\Tasks.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 9, 0, 0, 2, 11
+"f:\DEV\Projects\ProjectHandler\react-client\src\pages\tasks\tasks.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"Total", "-", 8, 1707, 38, 25, 3335, 4605, 29125, 184, 1535, 40562

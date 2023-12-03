@@ -16,6 +16,10 @@ const Activities = new mongoose.Schema({
         type: String,
         required: true,
     },
+    parent:{
+        type: [String]
+    } 
+    ,
     attach:{
         type: [String],
     },

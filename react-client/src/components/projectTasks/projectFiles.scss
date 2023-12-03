@@ -1,12 +1,12 @@
-.addNewComment{
+.addNewFile{
     position: absolute;
-    right: 30%;
+    right: 10%;
     top: 30%;
     z-index: 999;
     background-color: #fff;
     width: 40%;
     height: fit-content;
-    border: 1px solid #7fc6a4;
+    border: 1px solid #fed766;
     border-radius: 10px;
     padding: 10px;
     display: flex;
@@ -20,6 +20,32 @@
         span{
             font-size: 14px;
             font-weight: 400;
+        }
+    }
+
+    .middleStage{
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-start;
+        align-items: center;
+
+        .file{
+
+            .itemPicture {
+                flex: 0.5;
+                display: flex;
+                justify-content: center;
+                cursor: pointer;
+                
+              }
+    
+              .green{
+                color: #7fc6a4;
+              }
+    
+              .red{
+                color: #d7826a;
+              }
         }
     }
 
@@ -43,23 +69,41 @@
         width: fit-content;
         padding: 5px;
         margin-top: 20px;
+        padding: 10px 20px;
     }
 
     
 }
 
-.tableWorkDetails{
+.tableTasks{
     padding: 15px 0px;
-    
-    .tableHead{
-        background-color: #118ab2;
 
+    .filterTasks{
+        display: flex;
+        align-items: center;
+
+        .filteredTasksItem{
+            background-color: #cecece;
+            padding: 5px 15px;
+            cursor: pointer;
+            color: white;
+        }
+        .active {
+            background-color: #118ab2;
+        }
+    }
+
+    .tableHead{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: #118ab2;
         ul{
             width: 98%;
             list-style-type: none;
             margin: 0;
             padding: 0;
-            
+            background-color: #118ab2;
             color: white;
             
 
@@ -72,8 +116,9 @@
     }
 
     .tableContents{
-        height: 300px;
+        height: 250px;
         overflow-y: scroll;
+        cursor: pointer;
         ul{
             list-style-type: none;
             margin: 0;
@@ -81,11 +126,12 @@
 
             li{
                 display: inline-block;
+                border-left: 1px solid white;
                 padding-left: 5px;
                 font-size: 14px;
                 line-height: 1.5;
-                
             }
         }
-    }
+    }   
 }
+

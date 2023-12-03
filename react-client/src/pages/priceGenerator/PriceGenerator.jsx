@@ -29,17 +29,21 @@ export default function PriceGenerator() {
   const PROCENT_CANT = 18 / 100;
   const PROCENT_PIERDERI_DEBITARE = 12 / 100;
   const PROCENT_PROIECTARE = 15 / 100;
-  const PROCENT_MASTERMOB = 20 / 100;
-  const VOPSIT_BASIC = 100;
-  const VOPSIT_MEDIUM = 125;
-  const VOPSIT_HIGH = 150;
+  const PROCENT_MASTERMOB = 25 / 100;
+  const VOPSIT_BASIC = 110;
+  const VOPSIT_MEDIUM = 135;
+  const VOPSIT_HIGH = 160;
   const CURS_EUR = 5;
-  const MULTIPLICATOR_CARCASE = 2.5;
-  const MULTIPLICATOR_FRONTURI = 2.5;
-  const PRET_MDF_BRUT_VOPSIT = 350;
+  const MULTIPLICATOR_CARCASE = 2.6;
+  const MULTIPLICATOR_FRONTURI = 2.6;
+  const PRET_MDF_BRUT_VOPSIT = 400;
+
+  const accesoriiArray = ["balamale", "picioare", "sertare", "blat", "picurator", "jolly", "prinderi", "led", "manere", "extra"]
 
   const [selectedRoom, setSelectedRoom] = useState("");
   const [inputPrice, setInputPrice] = useState({ mp_carcasa: "" });
+  const [inputPriceAccesorii, setInputPriceAccesorii] = useState({});
+  const [totalAccesorii, setTotalAccesorii] = useState("0");
   const [processedInputInfo, setProcessedInputInfo] = useState({});
   const [processedInfo, setProcessedInfo] = useState({});
   const [processedInputInfo2, setProcessedInputInfo2] = useState({});
@@ -51,6 +55,7 @@ export default function PriceGenerator() {
   //verifica daca este selectata utilizarea procentajului pentru cant
   const [cantChecked, setCantChecked] = useState(false);
   const [cantFronturiChecked, setCantFronturiChecked] = useState(false);
+  const [accesoriiChecked, setAccesoriiChecked] = useState(false);
   //verifica ce tip de front e selectat
   const [tipFront, setTipFront] = useState("");
   const [tipVopsit, setTipVopsit] = useState("");
@@ -63,9 +68,12 @@ export default function PriceGenerator() {
   const handleCantFronturiCheckBox = () => {
     setCantFronturiChecked(!cantFronturiChecked);
   };
+  const handleAccesoriiChecked = () => {
+    setAccesoriiChecked(!accesoriiChecked);
+  };
 
   const handleUpdate = () => {
-    setUpdate(!update)
+    setUpdate(!update);
   };
 
   //seteaza verificarea frontului
@@ -84,6 +92,27 @@ export default function PriceGenerator() {
   const handleInput = (e) => {
     setInputPrice({ ...inputPrice, [e.target.name]: e.target.value });
   };
+
+  const handleInputAccesorii = (e) => {
+    e.preventDefault();
+    setInputPriceAccesorii({
+      ...inputPriceAccesorii,
+      [e.target.name]: e.target.value,
+    });
+  };
+  useEffect(() => {
+    console.log(inputPriceAccesorii);
+    const values = Object.values(inputPriceAccesorii)
+    const sum = values.reduce((total, value) => {
+      return parseInt(total) + parseInt(value)
+    },0)
+    setTotalAccesorii(sum)
+    
+  }, [inputPriceAccesorii]);
+
+  useEffect(() => {
+    setInputPrice({...inputPrice, accesorii: totalAccesorii });
+  }, [totalAccesorii]);
 
   const handleCalculStructura = () => {
     const mp_carcasa =
@@ -176,7 +205,7 @@ export default function PriceGenerator() {
         : parseFloat(inputPrice.pret_cant_fronturi);
       pret_front = (nr_placi * pret_placa + cost_cant) * MULTIPLICATOR_FRONTURI;
 
-      return pret_front;
+      return Math.round(pret_front * 100) / 100;
     }
   };
 
@@ -253,7 +282,7 @@ export default function PriceGenerator() {
 
       case "pal/mdf":
         return handleCalculFronturi() / MULTIPLICATOR_FRONTURI;
-      break;
+        break;
     }
   };
 
@@ -266,16 +295,14 @@ export default function PriceGenerator() {
           processedInputInfo2.fitinguri +
           processedInputInfo3.proc_mastermob +
           parseFloat(inputPrice.extra) / MULTIPLICATOR_CARCASE +
-          processedInputInfo6.proc_partener ) *
+          processedInputInfo6.proc_partener) *
           100
       ) / 100
     );
   };
 
   const handleCalculTaxe = () => {
-    const pret_final =
-      processedInputInfo4.total +
-      processedInputInfo5.montaj ;
+    const pret_final = processedInputInfo4.total + processedInputInfo5.montaj;
     return (
       Math.round(
         (pret_final * 0.03 + (pret_final - pret_final * 0.03) * 0.05) * 100
@@ -284,27 +311,23 @@ export default function PriceGenerator() {
   };
 
   const handleCalculRamasi = () => {
-    const total_costuri = (processedInputInfo.costuri_structura_carcase +
-        processedInputInfo.costuri_fronturi +
-        parseFloat(inputPrice.accesorii) +
-        processedInputInfo2.fitinguri +
-        processedInputInfo3.proc_mastermob +
-        parseFloat(inputPrice.extra) / MULTIPLICATOR_CARCASE +
-        processedInputInfo6.proc_partener )
+    const total_costuri =
+      processedInputInfo.costuri_structura_carcase +
+      processedInputInfo.costuri_fronturi +
+      parseFloat(inputPrice.accesorii) +
+      processedInputInfo2.fitinguri +
+      processedInputInfo3.proc_mastermob +
+      parseFloat(inputPrice.extra) / MULTIPLICATOR_CARCASE +
+      processedInputInfo6.proc_partener;
     return (
-      Math.round(
-        (processedInputInfo6.pret_final -
-          total_costuri) *
-          100
-      ) / 100
+      Math.round((processedInputInfo6.pret_final - total_costuri) * 100) / 100
     );
   };
 
   const handleCalculProcentPartener = () => {
     return (
       Math.round(
-        (processedInputInfo4.total +
-          processedInputInfo5.montaj ) *
+        (processedInputInfo4.total + processedInputInfo5.montaj) *
           (parseInt(inputPrice.procent) / 100) *
           100
       ) / 100
@@ -314,32 +337,22 @@ export default function PriceGenerator() {
   const handleCalculPretFinal = () => {
     return (
       Math.round(
-        (processedInputInfo4.total +
-          processedInputInfo5.montaj) *
-          100
+        (processedInputInfo4.total + processedInputInfo5.montaj) * 100
       ) / 100
     );
   };
 
   const handleCalculProfit = () => {
-    const bani_ramasi = handleCalculRamasi()
-    return (
-      Math.round((bani_ramasi - processedInputInfo6.taxe) * 100) / 100
-    );
+    const bani_ramasi = handleCalculRamasi();
+    return Math.round((bani_ramasi - processedInputInfo6.taxe) * 100) / 100;
   };
 
   const handleCalculProcentProfit = () => {
-    const profit = handleCalculProfit()
+    const profit = handleCalculProfit();
     return (
-      Math.round(
-        ((profit * 100) /
-          (processedInputInfo6.pret_final)) *
-          100
-      ) / 100
+      Math.round(((profit * 100) / processedInputInfo6.pret_final) * 100) / 100
     );
   };
-
-  
 
   //Process initial info from inputPrice
   useEffect(() => {
@@ -358,7 +371,7 @@ export default function PriceGenerator() {
       //Calcul nr placi front
       nr_placi_front: handleNrPlaciFront(),
     });
-  }, [update, inputPrice, cantChecked, cantFronturiChecked, tipVopsit]);
+  }, [update, inputPrice, cantChecked, cantFronturiChecked, accesoriiChecked, tipVopsit]);
 
   //Update fitings in real time based on prior processedInfo, processed info stage 2 - fitinguri
   useEffect(() => {
@@ -488,11 +501,13 @@ export default function PriceGenerator() {
                 </li>
               </ul>
 
-              {selectedRoom && <div className="generateMaterials">
-                  <GenerateMaterials room={selectedRoom}/>
-              </div> }
+              {selectedRoom && (
+                <div className="generateMaterials">
+                  <GenerateMaterials room={selectedRoom} />
+                </div>
+              )}
             </div>
-            
+
             <div className="priceInputArea">
               <div className="priceInputAreaLeft">
                 <div className="inputItem">
@@ -545,16 +560,58 @@ export default function PriceGenerator() {
                 </div>
                 <div className="inputItem">
                   <ul className="inputItemWrapper">
-                    <h4>Accesorii:</h4>
-                    <li className="inputItemSubitem">
-                      <span>cost:</span>{" "}
-                      <input
-                        name="accesorii"
-                        type="text"
-                        value={inputPrice.accesorii}
-                        onChange={handleInput}
-                      />
-                    </li>
+                    <div className="accesoriiHeader">
+                      <h4>Accesorii:</h4>
+                      <div>
+                        <Checkbox
+                          checked={accesoriiChecked}
+                          onClick={handleAccesoriiChecked}
+                          sx={{ "& .MuiSvgIcon-root": { fontSize: 20 } }}
+                        />{" "}
+                        adauga manual{" "}
+                      </div>
+                    </div>
+                    {accesoriiChecked && (
+                      <>
+
+                        {accesoriiArray.map((item, index) => (
+                          <li className="inputItemSubitem" key={index}>
+                          <span>{item}:</span>{" "}
+                          <input
+                            name={item}
+                            type="text"
+                            value={inputPrice.item}
+                            onChange={handleInputAccesorii}
+                          />
+                        </li>
+                        ))}
+                        
+                      
+
+                        <li className="inputItemSubitem" style={{marginTop: "25px"}}>
+                          <span>cost total:</span>{" "}
+                          <input
+                            name="accesorii"
+                            type="text"
+                            value={inputPrice.accesorii}
+                            onChange={handleInputAccesorii}
+                          />
+                        </li>
+                      </>
+                    )}
+
+                    {!accesoriiChecked && (
+                      <li className="inputItemSubitem">
+                        <span>cost total:</span>{" "}
+                        <input
+                          name="accesorii"
+                          type="text"
+                          value={inputPrice.accesorii}
+                          onChange={handleInput}
+                        />
+                      </li>
+                    )}
+
                     <li className="inputItemSubitem">
                       <span>procent: </span>{" "}
                       <input
@@ -791,9 +848,13 @@ export default function PriceGenerator() {
                       </li>
                       <li>
                         <span>
-                          Pret final: <h6>pret total + montaj, fara transport</h6>{" "}
+                          Pret final:{" "}
+                          <h6>pret total + montaj, fara transport</h6>{" "}
                         </span>
-                        {processedInputInfo6.pret_final}{" "}
+                        {Math.round(
+                          processedInputInfo6.pret_final +
+                            processedInputInfo6.proc_partener
+                        )}{" "}
                       </li>
                     </ul>
                   </li>
@@ -842,7 +903,7 @@ export default function PriceGenerator() {
                         <span>
                           Fronturi:<h6>cost pal/mdf + cant sau mdf + vopsea</h6>
                         </span>
-                        {processedInputInfo.costuri_fronturi}
+                        {Math.round(processedInputInfo.costuri_fronturi*100)/100}
                       </li>
                       <li>
                         <span>
