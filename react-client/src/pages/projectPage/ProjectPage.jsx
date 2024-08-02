@@ -17,7 +17,7 @@ export default function ProjectPage() {
     
     const projectId = location.pathname.split("/").pop()
 
-    const {data, loading, error, reFetch} = useFetch(`/projects/find/${projectId}`)
+    const {data, loading, error, reFetch} = useFetch(`/api/projects/find/${projectId}`)
     
     const [openEditTaskModal, setOpenEditTaskModal] = useState(false)
     const [accessedTask, setAccessedTask] = useState({})

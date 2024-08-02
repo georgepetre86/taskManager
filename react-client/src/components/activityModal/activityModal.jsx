@@ -29,7 +29,7 @@ export default function ActivityModal(props) {
         setCurrentId(props.activityId)
     },[props])
 
-    const { data, loading, error, reFetch } = useFetch(`/activities/find/${currentId}`);
+    const { data, loading, error, reFetch } = useFetch(`/api/activities/find/${currentId}`);
 
     useEffect(() => {
         setRowData(data)

@@ -120,7 +120,7 @@ export default function Activities() {
   ];
 
   //fetches all the activities from the database
-  const { data, loading, error, reFetch } = useFetch("/activities");
+  const { data, loading, error, reFetch } = useFetch("/api/activities");
   const { user } = useContext(AuthContext);
 
   // Manage useStates
@@ -230,7 +230,7 @@ export default function Activities() {
   const handleAddNewActivityToDatabase = async () => {
     const activity = { ...inputActivity, comment: [], attach: [] };
     try {
-      const savedActivity = await axios.post(`/activities`, activity);
+      const savedActivity = await axios.post(`/api/activities`, activity);
       setRowData(savedActivity.data);
     } catch (err) {
       console.log(err);

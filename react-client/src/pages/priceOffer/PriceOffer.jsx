@@ -141,7 +141,7 @@ export default function PriceOffer() {
           "https://res.cloudinary.com/dydivylgi/image/upload/v1670355595/projectHandler/generic_xihl2c.png";
       }
 
-      const response = await axios.post("/priceofferitem", inputItem);
+      const response = await axios.post("/api/priceofferitem", inputItem);
       idArray.push(response.data._id);
     } catch (err) {
       console.log(err);
@@ -287,7 +287,7 @@ export default function PriceOffer() {
   const handleSaveOffer = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/priceoffer", saveData);
+      await axios.post("/api/priceoffer", saveData);
     } catch (err) {
       console.log(err)
     }

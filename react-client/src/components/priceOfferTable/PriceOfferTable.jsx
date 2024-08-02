@@ -6,7 +6,7 @@ import axios from 'axios'
 
 export default function PriceOfferTable({sendPriceOfferToList, refreshList}) {
 
-    const {data, loading, error, reFetch} = useFetch("/priceoffer")
+    const {data, loading, error, reFetch} = useFetch("/api/priceoffer")
 
     data.sort((a,b) =>  b.offerNumber.replace('KRB0','') - a.offerNumber.replace('KRB0','') )
 

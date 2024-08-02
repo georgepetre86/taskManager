@@ -19,7 +19,7 @@ import useFetch from "../../hooks/useFetch";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 
 export default function ProjectsTopbar({ tab, passNewProject }) {
-  const { data, loading, error, reFetch } = useFetch("/projects");
+  const { data, loading, error, reFetch } = useFetch("/api/projects");
 
   const location = useLocation();
   const [addNewProjectModal, setAddNewProjectModal] = useState(false);
@@ -117,7 +117,7 @@ export default function ProjectsTopbar({ tab, passNewProject }) {
 
   const handleAddNewProject = async () => {
     try {
-      const proj = await axios.post(`/projects`, newProjectInput);
+      const proj = await axios.post(`/api/projects`, newProjectInput);
       console.log("uploaded", proj);
     } catch (err) {
       console.log(err);
