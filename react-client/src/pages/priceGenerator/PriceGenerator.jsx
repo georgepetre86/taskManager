@@ -26,17 +26,17 @@ import {
 import GenerateMaterials from "../../components/generateMaterials/GenerateMaterials";
 
 export default function PriceGenerator() {
-  const PROCENT_CANT = 18 / 100;
-  const PROCENT_PIERDERI_DEBITARE = 12 / 100;
+  const PROCENT_CANT = 20 / 100;
+  const PROCENT_PIERDERI_DEBITARE = 8 / 100;
   const PROCENT_PROIECTARE = 15 / 100;
-  const PROCENT_MASTERMOB = 25 / 100;
-  const VOPSIT_BASIC = 110;
-  const VOPSIT_MEDIUM = 135;
+  const PROCENT_MASTERMOB = 28 / 100;
+  const VOPSIT_BASIC = 100;
+  const VOPSIT_MEDIUM = 130;
   const VOPSIT_HIGH = 160;
   const CURS_EUR = 5;
   const MULTIPLICATOR_CARCASE = 2.6;
   const MULTIPLICATOR_FRONTURI = 2.6;
-  const PRET_MDF_BRUT_VOPSIT = 400;
+  const PRET_MDF_BRUT_VOPSIT = 440;
 
   const accesoriiArray = ["balamale", "picioare", "sertare", "blat", "picurator", "jolly", "prinderi", "led", "manere", "extra"]
 
@@ -913,7 +913,7 @@ export default function PriceGenerator() {
                       </li>
                       <li>
                         <span>
-                          20% Mastermob:
+                          20% Productie:
                           <h6>(carcase + fronturi + fitinguri) * 20%</h6>
                         </span>
                         {processedInputInfo3.proc_mastermob}{" "}

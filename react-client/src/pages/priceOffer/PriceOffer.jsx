@@ -38,9 +38,9 @@ export default function PriceOffer() {
   const [currentInputDetails, setCurrentInputDetails] = useState("");
   const [currentInputPending, setCurrentInputPending] = useState("");
   const [currentInputRemark, setCurrentInputRemark] = useState("");
-  const [detailsArray, setDetailsArray] = useState([]);
-  const [pendingArray, setPendingArray] = useState([]);
-  const [remarkArray, setRemarkArray] = useState([]);
+  const [detailsArray, setDetailsArray] = useState(["picioare reglabile Hafele", "balamale cu soft close si reglaj 3D",]);
+  const [pendingArray, setPendingArray] = useState(["masuratori la locatia clientului"]);
+  const [remarkArray, setRemarkArray] = useState(["pretul include montaj si transport"]);
   const [addPendingModal, setAddPendingModal] = useState(false);
   const [addRemarksModal, setAddRemarksModal] = useState(false);
   const [itemList, setItemList] = useState([]);
@@ -357,6 +357,8 @@ export default function PriceOffer() {
                   src="https://res.cloudinary.com/dydivylgi/image/upload/v1668337393/kribstudio/krib_Studio_logo_v1_offer_xnfted.png"
                   alt=""
                 />
+                <h4>contact@kribstudio.ro</h4>
+                <h4>0726392242</h4>
               </div>
               <div className="headerText">
                 <ul>
